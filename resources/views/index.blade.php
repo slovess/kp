@@ -249,11 +249,11 @@
     width: 220px;
     height: 300px;
   }
-  
+
   .category-image-container {
     height: 200px;
   }
-  
+
   .category-title {
     height: 80px;
     padding: 15px;
@@ -483,7 +483,7 @@
         grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 20px;
     }
-    
+
     .product-image-container {
         height: 160px;
     }
@@ -525,9 +525,9 @@
       </nav>
       <a href="{{url('register')}}" class="auth-link">РЕГИСТРАЦИЯ|ВХОД</a>
     </header>
-  
+
     <h1 class="page-title">ГЛАВНАЯ</h1>
-  
+
     <section class="content">
       <div class="banner-container">
         <div class="banner-grid">
@@ -560,7 +560,7 @@
     @foreach($categories as $category)
     <a href="{{ route('categories.show', $category->id) }}" class="category-link">
         <div class="category-card">
-            <img src="{{ asset('categories/' . $category->image) }}" 
+            <img src="{{ asset('categories/' . $category->image) }}"
                  alt="{{ $category->title }}"
                  class="category-image"
                  onerror="this.onerror=null;this.src='{{ asset('categories/default.png') }}'">
@@ -569,7 +569,7 @@
     </a>
     @endforeach
 </div>
-          
+
 <div class="section-header">
     <a href="#" class="in_link">
         <h2 class="section-title">Популярные позиции</h2>
@@ -582,10 +582,10 @@
     <div class="product-card">
         <a href="{{ route('goods.show', $good->id) }}" class="product-link">
             <div class="product-image-container">
-                <img src="{{ asset('storage/goods/' . $good->image) }}" 
+                <img src="{{ asset('storage/images/' . $good->image) }}"
                      alt="{{ $good->name }}"
                      class="product-image"
-                     onerror="this.src='{{ asset('images/default-product.png') }}'">
+                     onerror="this.src='{{ asset('storage/yojibomber.png') }}'">
             </div>
             <div class="product-info">
                 <h3 class="product-title">{{ $good->name }}</h3>
@@ -596,7 +596,7 @@
     @endforeach
 </section>
 
-    
+
         <footer class="main-footer">
             <img src="http://127.0.0.1:8000/logo.png" class="footer-logo" alt="Footer logo" />
             <nav class="footer-nav">

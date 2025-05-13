@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Good;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GoodsController extends Controller
 {
@@ -27,11 +28,11 @@ class GoodsController extends Controller
             'name' => 'required|max:255',
             'price' => 'required|numeric',
             'image' => 'image|mimes:jpeg,png,jpg|max:2048',
-            'isPopular' => 'ТУТ ЧО ПИСАТЬ???????'
+            'isPopular' => 'required'
         ]);
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('goods', 'public');
+            $path = $request->file('image')->store('photos', 'public');
             $validated['image'] = $path;
         }
 
@@ -64,7 +65,7 @@ class GoodsController extends Controller
         if ($request->hasFile('image')) {
             // Удаляем старое изображение
             Storage::delete($good->image);
-            
+
             $path = $request->file('image')->store('goods', 'public');
             $validated['image'] = $path;
         }
