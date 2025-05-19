@@ -1,15 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GoodsController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-
-
 
 /*Регистрация, авторизация, восстановление пароля, выход из аккаунта, профиль*/
 Route::get('/goods/{id}', [GoodsController::class, 'show'])->name('goods.show');
@@ -19,12 +16,16 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
-// Показ всех категорий
-// Показ всех категорий
-Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+
+Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
+
+Route::get('/categori', [CategoryController::class, 'index'])->name('categories.index');
+
+ //Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 
 // Показ одной категории
-Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/categori/{id}', [CategoryController::class, 'show'])->name('categories.show');
+
 Route::middleware(['auth'])->group(function () {
     /*Здесь должны храниться те маршруты, где пользователь должен быть авторизирован, например: профиль, выход из аккаунта, переход к оплате и т.д*/
     Route::get('/', [HomeController::class, 'index'])->name('home');

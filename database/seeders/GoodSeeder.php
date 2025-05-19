@@ -12,23 +12,22 @@ class GoodSeeder extends Seeder
     public function run(): void
     {
         Good::create([
-            'name'        => 'Футболка Nike оверсайз с вышивкой',
-            'description' => 'Представьте себе: вы в центре внимания, уверенно шагаете по улице, а на вас – стильная футболка Nike oversize с вышивкой, которая подчеркивает ваш неповторимый стиль! Эта футболка – не просто одежда, этоstatement, это выражение вашей индивидуальности. Свободный крой oversize дарит невероятный комфорт и свободу движений, а дышащий материал из хлопка и полиэстера обеспечит вам свежесть и комфорт в течение всего дня. Вышивка Nike – символ качества и стиля – придает футболке уникальный и запоминающийся вид. Универсальный дизайн этой модели подойдет как для активного отдыха, так и для повседневных образов. Подарите себе или своим близким этот стильный и практичный подарок, который станет любимой вещью в гардеробе!',
-            'price'       => 2550,
-            'image' => '/banner1.png',
+            'name'        => 'enfants riches',
+            'description' => 'Просто и со вкусом',
+            'price'       => 48000,
             'isPresence'  => 1,
             'isPopular'   => 1,
             'size'        => 'L',
-            'image'       => '',
-            'brand_id'    => 1,
-            'category_id' => 1,
+            'image'       => 'goods/shirt.png',
+            'brand_id'    => 11,
+            'category_id' => 3,
             'location_id' => 1,
             'material_id' => 1,
             'color_id'    => 1,
         ]);
 
         Good::create([
-            'name'        => 'Футболка julias',
+            'name'        => 'julias t shirt',
             'description' => ' Черный/белый, серый, графичный принт спереди, круглый вырез, короткие
         рукава и прямой подол.
         Свободный крой по всей длине. Неэластичная ткань средней плотности
@@ -39,12 +38,54 @@ class GoodSeeder extends Seeder
             'price'       => 15000,
             'isPresence'  => 1,
             'size'        => 'M',
-            'image'       => '',
+            'image'       => 'jultshirt.png',
             'brand_id'    => 9,
             'category_id' => 1,
             'location_id' => 1,
             'material_id' => 1,
             'color_id'    => 1,
+        ]);
+         Good::create([
+            'name'        => 'raf simons emercodery',
+            'description' => 'Гениален в каждой детали',
+            'price'       => 35000,
+            'isPresence'  => 1,
+            'isPopular'   => 1,
+            'size'        => 'L',
+            'image'       => 'rubsvit.png',
+            'brand_id'    => 10,
+            'category_id' => 3,
+            'location_id' => 1,
+            'material_id' => 1,
+            'color_id'    => 6,
+        ]);
+         Good::create([
+            'name'        => 'vetements hi-speed',
+            'description' => 'Гениален в каждой детали',
+            'price'       => 35000,
+            'isPresence'  => 1,
+            'isPopular'   => 1,
+            'size'        => 'L',
+            'image'       => 'vetmo.png',
+            'brand_id'    => 7,
+            'category_id' => 1,
+            'location_id' => 1,
+            'material_id' => 1,
+            'color_id'    => 1,
+        ]);
+         Good::create([
+            'name'        => 'chrome hearts jeans',
+            'description' => 'Французский флер',
+            'price'       => 157000,
+            'isPresence'  => 1,
+            'isPopular'   => 1,
+            'size'        => 'L',
+            'image'       => 'jeans.png',
+            'brand_id'    => 5,
+            'category_id' => 1,
+            'location_id' => 1,
+            'material_id' => 1,
+            'color_id'    => 6,
         ]);
     }
 }

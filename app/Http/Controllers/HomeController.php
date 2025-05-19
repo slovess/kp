@@ -13,7 +13,8 @@ public function index()
 {
     $categories = Category::all();
     $popularGoods = Good::where('isPopular', true)->take(5)->get();
+    $popularCategory = Category::where('isPopular', true)->take(5)->get();
 
-    return view('index', compact('categories', 'popularGoods'));
+    return view('index', compact('categories', 'popularGoods', 'popularCategory'));
 }
 }

@@ -11,10 +11,9 @@ class CategoryController extends Controller
     public function index()
     {
         // Получаем все категории из базы
-        $categories = Category::all();
-        
-        // Передаем в представление
+        $categories = Category::all(); 
         return view('categories.index', compact('categories'));
+        
     }
 
     // Метод для показа одной категории
@@ -22,10 +21,11 @@ class CategoryController extends Controller
     {
         // Находим категорию по ID
         $category = Category::findOrFail($id);
-        
+
         // Получаем товары этой категории (если нужно)
         $goods = $category->goods;
         
+
         return view('categories.show', compact('category', 'goods'));
     }
 }

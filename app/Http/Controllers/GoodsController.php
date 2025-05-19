@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Color;
 use App\Models\Good;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -12,8 +13,10 @@ class GoodsController extends Controller
     public function index()
     {
         $goods = Good::all();
-        return view('goods.index', compact('goods'));
+        return view('goods.index');
+    // compact('goods')
     }
+
 
     // Показ формы создания
     public function create()
@@ -41,9 +44,11 @@ class GoodsController extends Controller
     }
 
     // Показ конкретного товара
-    public function show(Good $good)
+    public function show($id)
     {
-        return view('goods.show', compact('goods'));
+        $good = Good::findOrFail($id);
+        $popularGoods = Good::where('isPopular', true)->take(5)->get();
+        return view('goods.show', compact('good', 'popularGoods'));
     }
 
     // Показ формы редактирования

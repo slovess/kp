@@ -19,6 +19,7 @@ class ColorSeeder extends Seeder
             'синий',
             'бирюзовый',
             'серый',
+            'бежевый'
         ];
 
         foreach($ArrayOfColors as $item) {

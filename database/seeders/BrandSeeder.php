@@ -24,7 +24,8 @@ class BrandSeeder extends Seeder
             'yoji',
             'julias',
             'raf simons',
-            'gap'
+            'gap',
+            'enfants riches derrpimes'
         ];
 
         foreach($ArrayOfBrands as $item) {
