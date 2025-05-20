@@ -86,12 +86,32 @@
       margin-top: 154px;
     }
 
-    .category-card {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
+
+    .category-image {
+      aspect-ratio: 0.92;
+      object-fit: contain;
+      object-position: center;
+      width: 198px;
+      border-radius: 3px;
     }
 
+    .category-name {
+      align-self: center;
+      margin-top: 49px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+
+    .top-grid {
+      margin-top: 80px;
+    }
+
+    .bottom-grid {
+      margin-top: 154px;
+    }
+
+  
     .category-image {
       aspect-ratio: 0.92;
       object-fit: contain;
@@ -119,6 +139,12 @@
       letter-spacing: 0.8px;
       justify-content: space-between;
     }
+    .category-title {
+    color: #000;
+    font-size: 16px;
+    margin-top: 10px;
+    font-weight: normal;
+}
 
     .footer-nav {
       display: flex;
@@ -153,7 +179,14 @@
     .contact-link:first-child {
       margin-top: 0;
     }
-
+    .category-image {
+      margin-top: 20px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
 
     .category-card:nth-child(5) .category-image {
       width: 195px;
@@ -202,6 +235,77 @@
       text-decoration: none;
       color: #000000;
     }
+    .category-grid {
+        padding: 0 80px; 
+      display: flex;
+      margin-top: 68px;
+      width: 100%;
+      max-width: 1655px;
+      align-items: stretch;
+      font-family: 'Montserrat', -apple-system, Roboto, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #000;
+      font-weight: 400;
+      text-align: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: 20px;
+    }
+    .category-image {
+    margin-top: 20px;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+    .category-card {
+      display: inline-block;
+      width: 200px;
+      margin: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      position: relative;
+      /* Добавляем для позиционирования */
+      height: 280px;
+      /* Фиксированная высота блока */
+    }
+
+    .category-image-container {
+      width: 100%;
+      height: 180px;
+      /* Фиксированная высота контейнера для изображения */
+      overflow: hidden;
+      /* Обрезаем всё, что выходит за границы */
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+
+
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-title {
+      font-size: 18px;
+      color: #333;
+      padding: 20px;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+      margin: 0;
+      height: 100px;
+      /* Фиксированная высота для текста */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   </style>
 </head>
 
