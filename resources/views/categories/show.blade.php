@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>КАТЕГОРИИ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat :wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     .category {
       background-color: #FFFFFF;
@@ -57,26 +57,6 @@
       text-decoration: none;
     }
 
-    .category-title {
-      color: #670808;
-      font-size: 24px;
-      letter-spacing: 1.2px;
-      margin-top: 84px;
-      margin-left: 17px;
-    }
-
-    .category-grid {
-      display: flex;
-      width: 100%;
-      max-width: 1255px;
-      align-items: stretch;
-      gap: 20px;
-      color: #000000;
-      font-weight: 400;
-      text-align: center;
-      flex-wrap: wrap;
-      justify-content: space-between;
-    }
 
     .top-grid {
       margin-top: 80px;
@@ -86,25 +66,86 @@
       margin-top: 154px;
     }
 
-    .category-card {
+    .categories-grid {
+        padding: 0 80px; 
       display: flex;
-      flex-direction: column;
+      margin-top: 68px;
+      width: 100%;
+      max-width: 1655px;
       align-items: stretch;
+      font-family: 'Montserrat', -apple-system, Roboto, Helvetica, sans-serif;
+      font-size: 16px;
+      color: #000;
+      font-weight: 400;
+      text-align: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-left: 20px;
+    }
+
+    .category-card {
+      display: inline-block;
+      width: 200px;
+      margin: 15px;
+      text-align: center;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      position: relative;
+      /* Добавляем для позиционирования */
+      height: 280px;
+      /* Фиксированная высота блока */
+    }
+
+    .category-image-container {
+      width: 100%;
+      height: 180px;
+      /* Фиксированная высота контейнера для изображения */
+      overflow: hidden;
+      /* Обрезаем всё, что выходит за границы */
+      position: relative;
+      margin-bottom: 15px;
     }
 
     .category-image {
-      aspect-ratio: 0.92;
-      object-fit: contain;
+      margin-top: 20;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* Сохраняем пропорции, заполняя контейнер */
       object-position: center;
-      width: 198px;
-      border-radius: 3px;
+      /* Центрируем изображение */
+      display: block;
     }
 
-    .category-name {
-      align-self: center;
-      margin-top: 49px;
-      font-size: 16px;
+
+    .category-image {
+      margin-top: 20px;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-title {
+      font-size: 18px;
+      color: #333;
+      padding: 20px;
       font-weight: 400;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+      margin: 0;
+      height: 100px;
+      /* Фиксированная высота для текста */
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .main-footer {
@@ -119,6 +160,7 @@
       letter-spacing: 0.8px;
       justify-content: space-between;
     }
+
 
     .footer-nav {
       display: flex;
@@ -155,53 +197,44 @@
     }
 
 
-    .category-card:nth-child(5) .category-image {
-      width: 195px;
-      aspect-ratio: 0.9;
-    }
-
-    .bottom-grid .category-card:nth-child(1) .category-image {
-      width: 187px;
-    }
-
-    .bottom-grid .category-card:nth-child(2) .category-image {
-      width: 195px;
-      aspect-ratio: 0.95;
-      margin-top: 32px;
-    }
-
-    .bottom-grid .category-card:nth-child(2) .category-name {
-      margin-top: 29px;
-    }
-
-    .bottom-grid .category-card:nth-child(3) .category-image {
-      width: 186px;
-      aspect-ratio: 0.8;
-    }
-
-    .bottom-grid .category-card:nth-child(3) .category-name {
-      margin-top: 31px;
-    }
-
-
-    .bottom-grid .category-card:nth-child(5) {
-
-      margin-top: 59px;
-    }
-
-    .bottom-grid .category-card:nth-child(5) .category-image {
-      width: 145px;
-      aspect-ratio: 1.04;
-    }
-
-    .bottom-grid .category-card:nth-child(5) .category-name {
-      margin-top: 65px;
-    }
-
+ 
     .cat_link {
       text-decoration: none;
       color: #000000;
     }
+    .page-title {
+      color: rgb(103, 8, 8);
+      font-size: 24px;
+      font-family:
+        Montserrat,
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      align-self: center;
+      margin-top: 81px;
+    }
+    .category-title {
+    color: #000;
+    font-size: 16px;
+    font-weight: normal;
+}
+.category-name {
+      align-self: center;
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    .product-price {
+      font-size: 18px;
+      color: #670808;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+
   </style>
 </head>
 
@@ -210,14 +243,15 @@
     @include('components.header')
 
 
-    <h1 class="category-title">КАТЕГОРИИ</h1>
+    <h1 class="page-title">КАТЕГОРИИ</h1>
 
     <section class="category-grid top-grid">
       @foreach($goods as $good)
         <article class="category-card">
         <a href="{{ route('goods.show', $good->id) }}" class="cat_link">
           <img src="{{  asset('goods/' . $good->image) }}" alt="{{ $good['title'] }}" class="category-image" />
-          <h2 class="category-name">{{ $good->name }}</h2>
+          <h3 class="category-name">{{ $good->name }}</h3>
+          <p class="product-price">{{ number_format($good->price, 0, '', ' ') }} ₽</p>
         </a>
         </article>
         @endforeach

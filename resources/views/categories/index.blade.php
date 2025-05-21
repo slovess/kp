@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>КАТЕГОРИИ</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat :wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     .category {
       background-color: #FFFFFF;
@@ -57,13 +57,7 @@
       text-decoration: none;
     }
 
-    .category-title {
-      color: #670808;
-      font-size: 24px;
-      letter-spacing: 1.2px;
-      margin-top: 84px;
-      margin-left: 17px;
-    }
+
 
     .category-grid {
       display: flex;
@@ -97,10 +91,11 @@
 
     .category-name {
       align-self: center;
-      margin-top: 49px;
+      margin-top: 30px;
       font-size: 16px;
       font-weight: 400;
     }
+
 
 
     .top-grid {
@@ -120,12 +115,6 @@
       border-radius: 3px;
     }
 
-    .category-name {
-      align-self: center;
-      margin-top: 49px;
-      font-size: 16px;
-      font-weight: 400;
-    }
 
     .main-footer {
       background-color: #670808;
@@ -139,13 +128,21 @@
       letter-spacing: 0.8px;
       justify-content: space-between;
     }
-    .category-title {
-    color: #000;
-    font-size: 16px;
-    margin-top: 10px;
-    font-weight: normal;
-}
 
+.category-title {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+      margin: 0;
+      height: 100px;
+      /* Фиксированная высота для текста */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .footer-nav {
       display: flex;
       flex-direction: column;
@@ -180,7 +177,6 @@
       margin-top: 0;
     }
     .category-image {
-      margin-top: 20px;
       width: 100%;
       height: 180px;
       object-fit: cover;
@@ -188,49 +184,7 @@
       margin-bottom: 10px;
     }
 
-    .category-card:nth-child(5) .category-image {
-      width: 195px;
-      aspect-ratio: 0.9;
-    }
-
-    .bottom-grid .category-card:nth-child(1) .category-image {
-      width: 187px;
-    }
-
-    .bottom-grid .category-card:nth-child(2) .category-image {
-      width: 195px;
-      aspect-ratio: 0.95;
-      margin-top: 32px;
-    }
-
-    .bottom-grid .category-card:nth-child(2) .category-name {
-      margin-top: 29px;
-    }
-
-    .bottom-grid .category-card:nth-child(3) .category-image {
-      width: 186px;
-      aspect-ratio: 0.8;
-    }
-
-    .bottom-grid .category-card:nth-child(3) .category-name {
-      margin-top: 31px;
-    }
-
-
-    .bottom-grid .category-card:nth-child(5) {
-
-      margin-top: 59px;
-    }
-
-    .bottom-grid .category-card:nth-child(5) .category-image {
-      width: 145px;
-      aspect-ratio: 1.04;
-    }
-
-    .bottom-grid .category-card:nth-child(5) .category-name {
-      margin-top: 65px;
-    }
-
+   
     .cat_link {
       text-decoration: none;
       color: #000000;
@@ -291,20 +245,27 @@
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .category-title {
-      font-size: 18px;
-      color: #333;
-      padding: 20px;
-      font-weight: 400;
-      letter-spacing: 0.2px;
-      line-height: 1.4;
-      margin: 0;
-      height: 100px;
-      /* Фиксированная высота для текста */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .page-title {
+      color: rgb(103, 8, 8);
+      font-size: 24px;
+      font-family:
+        Montserrat,
+        -apple-system,
+        Roboto,
+        Helvetica,
+        sans-serif;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      align-self: center;
+      margin-top: 81px;
     }
+    .category-title {
+
+    color: #000;
+    font-size: 16px;
+
+    font-weight: normal;
+}
 
   </style>
 </head>
@@ -314,7 +275,7 @@
     @include('components.header')
 
 
-    <h1 class="category-title">КАТЕГОРИИ</h1>
+    <h1 class="page-title">КАТЕГОРИИ</h1>
 
     <section class="category-grid top-grid">
       @foreach($categories as $index => $category)
@@ -335,7 +296,7 @@
       <article class="category-card">
         <a href="#" class="cat_link">
           <img src="{{ $category->getImagePath() }}" alt="{{ $category->title }}" class="category-image" />
-          <h2 class="category-name">{{ $category['title'] }}</h2>
+          <h2 class="category-title">{{ $category['title'] }}</h2>
         </a>
       </article>
       @endif

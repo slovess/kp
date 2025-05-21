@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('name', 45);
             $table->text('description')->nullable();
-            $table->decimal('price', 24, 8);
+            $table->decimal('price', 20, 2);
             $table->boolean('isPresence');
             $table->boolean('isPopular')->nullable();   
             $table->string('size', 8)->nullable();

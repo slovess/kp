@@ -10,7 +10,9 @@ class Basket extends Model
     use HasFactory;
 
     protected $fillable = [
-        'quantity'
+        'quantity',
+        'user_id',
+        'goods_id'
     ];
 
     public function user() {

@@ -7,9 +7,10 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BasketController;
 
-/*Регистрация, авторизация, восстановление пароля, выход из аккаунта, профиль*/
 Route::get('/goods/{id}', [GoodsController::class, 'show'])->name('goods.show');
+Route::post('/goods/{id}/{userId}', [BasketController::class, 'store'])->name('cart.add');
 
 Route::get('/register', [RegisterController::class, 'index'])->name('registerForm');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
@@ -21,7 +22,8 @@ Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index
 
 Route::get('/categori', [CategoryController::class, 'index'])->name('categories.index');
 
- //Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/cart', [BasketController::class, 'index'])->name('cart.index');
+Route::delete('/cart/{id}', [BasketController::class, 'destroy'])->name('cart.remove');
 
 // Показ одной категории
 Route::get('/categori/{id}', [CategoryController::class, 'show'])->name('categories.show');

@@ -266,9 +266,10 @@
   text-decoration: none;
   color: #670808;
 }
-
+.in-link{
+  text-decoration: none;
+}
     </style>
-    <meta charset="UTF-8">
         <header class="header">
           <img src="https://ibb.co/svWV4PPr" alt="Logo" class="logo" />
           <nav class="main-nav">
@@ -279,38 +280,52 @@
         </header>
       
         <section class="cart-content">
-          <div class="content-wrapper">
-            <div class="catalog-column">
-              <div class="catalog-header">
+    <div class="content-wrapper">
+        <div class="catalog-column">
+            <div class="catalog-header">
                 <div class="catalog-title-wrapper">
-                  <a href="{{url('catalog')}}" class="hrefcat">
-                  <h1 class="catalog-title">КАТАЛОГ</h1>
-                  </a>
+                    <a href="{{url('catalog')}}" class="hrefcat">
+                        <h1 class="catalog-title">КАТАЛОГ</h1>
+                    </a>
                 </div>
                 <p class="cart-status">
-                  КОРЗИНА
-                  <span class="cart-count">1 товар</span>
+                    КОРЗИНА
+                    <span class="cart-count">{{ $cartItems->count() }} товар(ов)</span>
                 </p>
-                <img src="img/jultshirt.png" alt="Cart items" class="cart-image" />
-              </div>
+                @foreach ($cartItems as $cartItem)
+                <img src="{{ $cartItem->image }}" alt="Cart items" class="cart-image" />
+                @endforeach
+
             </div>
-      
-            <div class="order-column">
-              <div class="order-summary">
+        </div>
+
+        <div class="order-column">
+            @foreach($cartItems as $item)
+            <div class="order-summary">
                 <div class="product-header">
-                  <h2 class="product-title">julius t shirt</h2>
-                  <img src="img/jultshirt.png" alt="Close" class="close-icon" />
+                    <h2 class="product-title">{{ $item->good->name }}</h2>
+                    <form action="{{ route('cart.remove', $item) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="close-icon-button">
+                            <img src="img/close-icon.png" alt="Close" class="close-icon" />
+                        </button>
+                    </form>
                 </div>
                 <p class="size-info">
-                  Размер:
-                  <span class="size-value">M</span>
+                    Размер:
+                    <span class="size-value">{{ $item->size }}</span>
                 </p>
-                <p class="price">24300 руб.</p>
-                <button class="checkout-button">ОФОРМИТЬ ЗАКАЗ</button>
-              </div>
+                <p class="price">{{ $item->good->price }} руб.</p>
+                <p class="quantity">Количество: {{ $item->quantity }}</p>
             </div>
-          </div>
-        </section>
+            @endforeach
+            <a href="#"  class="in_link">
+            <button class="checkout-button">ОФОРМИТЬ ЗАКАЗ</button>
+            </a>
+        </div>
+    </div>
+</section>
       
         <footer class="footer">
           <img src="https://ibb.co/svWV4PPr" alt="Logo" class="logo" />

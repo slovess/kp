@@ -7,6 +7,7 @@
      </nav>
 
      @auth
+     <a href="{{ url('cart') }}" class="nav-link">КОРЗИНА</a>
      <span class="auth-link">Привет, {{ Auth::user()->name }}!</span>
      @else
      <a href="{{ route('login') }}" class="auth-link">РЕГИСТРАЦИЯ|ВХОД</a>
