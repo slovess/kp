@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use App\Models\Good;
@@ -45,7 +46,7 @@ class GoodSeeder extends Seeder
             'material_id' => 1,
             'color_id'    => 1,
         ]);
-         Good::create([
+        Good::create([
             'name'        => 'raf simons emercodery',
             'description' => 'Гениален в каждой детали',
             'price'       => 35000,
@@ -59,7 +60,7 @@ class GoodSeeder extends Seeder
             'material_id' => 1,
             'color_id'    => 6,
         ]);
-         Good::create([
+        Good::create([
             'name'        => 'vetements hi-speed',
             'description' => 'Гениален в каждой детали',
             'price'       => 35000,
@@ -73,7 +74,7 @@ class GoodSeeder extends Seeder
             'material_id' => 1,
             'color_id'    => 1,
         ]);
-         Good::create([
+        Good::create([
             'name'        => 'chrome hearts jeans',
             'description' => 'Французский флер',
             'price'       => 157000,

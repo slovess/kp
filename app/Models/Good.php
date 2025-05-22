@@ -23,8 +23,9 @@ class Good extends Model
         'color_id',
     ];
 
-    public function basket() {
-        return $this->hasOne(Basket::class, 'goods_id');
+    public function baskets()
+    {
+        return $this->hasMany(Basket::class);
     }
 
     public function brand() {

@@ -14,7 +14,7 @@ class BasketController extends Controller
     {
 
 
-        $cartItems = Basket::with('goods_id')
+        $cartItems = Basket::with('good')
             ->where('user_id', Auth::id())
             ->get();
 
@@ -37,15 +37,23 @@ class BasketController extends Controller
 
         // if ($cartItem) {
         //     $cartItem->increment('quantity');
-        // } 
+        // }
         return redirect()->back()->with('success', 'Товар добавлен в корзину');
     }
 
 
 
-    public function destroy(Basket $basket)
+    public function destroy($id)
     {
-        $basket->delete();
-        return redirect()->back()->with('success', 'Товар удален из корзины');
+        $item = Basket::findOrFail($id);
+
+        // Проверка, что товар принадлежит текущему пользователю
+        if ($item->user_id != auth()->id()) {
+            abort(403);
+        }
+
+        $item->delete();
+
+        return back()->with('success', 'Товар удалён из корзины');
     }
 }
