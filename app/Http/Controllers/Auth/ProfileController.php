@@ -2,27 +2,42 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function index() {
-        $users = User::all();
-        return view('auth.profile', compact('users'));
+    public function show()
+    {
+        $user = Auth::user();
+        return view('auth.profile', compact('user'));
     }
 
-    public function update(Request $request) {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users' . Auth::id(),
-        ]);
-
+    public function update(Request $request)
+    {
         $user = Auth::user();
 
-        $user->update($data);
+        $validated = $request->validate([
+            'surname' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
+            'patronymic' => 'required|string|max:255',
+            'birthday' => 'nullable|date',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+        ]);
+
+        $user->update($validated);
+
+        return redirect()->route('profile.show')->with('success', 'Профиль обновлен.');
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
         return redirect()->route('login');
     }

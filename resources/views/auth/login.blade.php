@@ -107,7 +107,6 @@
         }
 
         .login-button {
-            border-radius: 10px;
             background-color: rgba(103, 8, 8, 1);
             border: none;
             width: 357px;

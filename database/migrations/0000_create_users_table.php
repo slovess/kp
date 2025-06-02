@@ -19,7 +19,7 @@ return new class extends Migration
             $table->date('birthday')->nullable();
             $table->string('email', 100)->unique();
             $table->string('password');
-            $table->enum('role', ['admin', 'manager', 'customer'])->default('customer');
+            $table->enum('role', ['admin', 'user'])->default('user');
 
             $table->rememberToken();
             $table->timestamps();

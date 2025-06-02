@@ -414,10 +414,6 @@
       color: #000;
 
     }
-
-
-
- 
     .category-image {
       margin-top: 20px;
       width: 100%;
@@ -427,9 +423,6 @@
       margin-bottom: 10px;
     }
 
-
-
-   
     .product-info {
       margin-top: 30px;
       padding: 15px;

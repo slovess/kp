@@ -113,7 +113,6 @@
         }
 
         .submit-button {
-            border-radius: 10px;
             background-color: rgba(103, 8, 8, 1);
             margin-top: 113px;
             width: 357px;

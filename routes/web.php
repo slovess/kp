@@ -8,6 +8,14 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\Auth\ProfileController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
+});
+
 
 Route::get('/goods/{id}', [GoodsController::class, 'show'])->name('goods.show');
 Route::post('/goods/{id}/{userId}', [BasketController::class, 'store'])->name('cart.add');

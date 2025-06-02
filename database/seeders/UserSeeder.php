@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
             'patronymic' => 'валентиновна',
             'email' => 'user@mail.ru',
             'password' => Hash::make('123123123'),
-            'birthday' => '2006.06.06'
+            'birthday' => '2006.06.06',
+            'role'=> 'admin'
         ]);
     }
 }
