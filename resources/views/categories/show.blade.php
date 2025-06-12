@@ -93,7 +93,7 @@
       transition: transform 0.3s ease;
       position: relative;
       /* Добавляем для позиционирования */
-      height: 280px;
+      height: 300px;
       /* Фиксированная высота блока */
     }
 
@@ -243,13 +243,13 @@
     @include('components.header')
 
 
-    <h1 class="page-title">КАТЕГОРИИ</h1>
+    <h1 class="page-title">{{ $category->title }}</h1>
 
     <section class="category-grid top-grid">
       @foreach($goods as $good)
         <article class="category-card">
         <a href="{{ route('goods.show', $good->id) }}" class="cat_link">
-          <img src="{{  asset('goods/' . $good->image) }}" alt="{{ $good['title'] }}" class="category-image" />
+          <img src="{{  asset('storage/' . $good->image) }}" alt="{{ $good['title'] }}" class="category-image" />
           <h3 class="category-name">{{ $good->name }}</h3>
           <p class="product-price">{{ number_format($good->price, 0, '', ' ') }} ₽</p>
         </a>

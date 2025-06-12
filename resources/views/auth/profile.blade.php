@@ -333,16 +333,52 @@ body {
                         <label class="profile__label">Email:</label>
                     </div>
                     <div class="profile__values">
-                        <input type="text" name="surname" class="profile__value" value="{{ old('surname', $user->surname) }}" required>
-                        <input type="text" name="name" class="profile__value" value="{{ old('name', $user->name) }}" required>
-                        <input type="text" name="patronymic" class="profile__value" value="{{ old('patronymic', $user->patronymic) }}" required>
-                        <input type="date" name="birthday" class="profile__value" value="{{ old('birthday', $user->birthday) }}">
-                        <input type="email" name="email" class="profile__value" value="{{ old('email', $user->email) }}" required>
+                        <input type="text" name="surname" class="profile__value @error('surname') is-invalid @enderror" value="{{ old('surname', $user->surname) }}" required>
+                        @error('surname')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        
+                        <input type="text" name="name" class="profile__value @error('name') is-invalid @enderror" value="{{ old('name', $user->name) }}" required>
+                        @error('name')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        
+                        <input type="text" name="patronymic" class="profile__value @error('patronymic') is-invalid @enderror" value="{{ old('patronymic', $user->patronymic) }}" required>
+                        @error('patronymic')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        
+                        <input type="date" name="birthday" class="profile__value @error('birthday') is-invalid @enderror" value="{{ old('birthday', $user->birthday) }}">
+                        @error('birthday')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        
+                        <input type="email" name="email" class="profile__value @error('email') is-invalid @enderror" value="{{ old('email', $user->email) }}" required>
+                        @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
             </div>
         </section>
+        
+   
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+        
+        @if(auth()->user()->role === 'admin')
+            <a href="{{ route('admin.goods.index') }}" class="btn btn-danger">Админ-панель</a>
+        @endif
+        
         <div class="profile__actions">
             <button type="submit" class="profile__button">СОХРАНИТЬ</button>
         </div>

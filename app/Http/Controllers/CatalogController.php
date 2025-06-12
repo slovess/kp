@@ -12,7 +12,7 @@ class CatalogController extends Controller
     public function index()
     {
         // Получаем все товары с пагинацией и загрузкой связанных моделей
-        $products = Good::with('color')->paginate(12);
+        $products = Good::with('color')->paginate(10);
         
         // Получаем все бренды для фильтра
         $brands = Brand::all();

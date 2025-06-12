@@ -7,11 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
   <title>CARTEMOUS</title>
   <style>
-    *{
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     .top-nav {
       background-color: rgba(103, 8, 8, 1);
       display: flex;
@@ -110,7 +111,7 @@
       display: flex;
       margin-top: 82px;
       width: 100%;
-     
+
       flex-direction: column;
       align-items: center;
     }
@@ -121,7 +122,7 @@
     }
 
     .banner-grid {
-      gap: 20px;
+      gap: 80px;
       display: flex;
     }
 
@@ -189,7 +190,7 @@
     }
 
     .categories-grid {
-        padding: 0 80px; 
+      padding: 0 80px;
       display: flex;
       margin-top: 68px;
       width: 100%;
@@ -215,7 +216,7 @@
       transition: transform 0.3s ease;
       position: relative;
       /* Добавляем для позиционирования */
-      height: 280px;
+      height: 300px;
       /* Фиксированная высота блока */
     }
 
@@ -279,8 +280,8 @@
       }
     }
 
-     .products-grid {
-        padding: 0 80px; 
+    .products-grid {
+      padding: 0 80px;
       display: flex;
       margin-top: 68px;
       width: 100%;
@@ -303,7 +304,7 @@
       text-align: center;
       border: 1px solid #ddd;
       border-radius: 8px;
-      
+
       transition: transform 0.3s ease;
       position: relative;
       /* Добавляем для позиционирования */
@@ -403,6 +404,7 @@
     }
 
     .in_link {
+      margin-left: 100px;
       text-decoration: none;
       color: #000;
       display: flex;
@@ -414,6 +416,7 @@
       color: #000;
 
     }
+
     .category-image {
       margin-top: 20px;
       width: 100%;
@@ -576,7 +579,7 @@
       <div class="section-header">
         <a href="{{route('categories.index')}}" class="in_link">
           <h2 class="section-title">Популярные категории</h2>
-          <img src="http://127.0.0.1:8001/Polygon3.png" class="section-icon" alt="Categories icon" />
+          <img src="http://127.0.0.1:8000/Polygon3.png" class="section-icon" alt="Categories icon" />
         </a>
       </div>
 
@@ -597,7 +600,7 @@
       <div class="section-header">
         <a href="{{route('catalog.index')}}" class="in_link">
           <h2 class="section-title">Популярные позиции</h2>
-          <img src="http://127.0.0.1:8001/Polygon3.png" class="section-icon" alt="Popular items icon" />
+          <img src="http://127.0.0.1:8000/Polygon3.png" class="section-icon" alt="Popular items icon" />
         </a>
       </div>
 
@@ -606,7 +609,7 @@
         <div class="product-card">
           <a href="{{ route('goods.show', $good->id) }}" class="product-link">
             <div class="product-image-container">
-              <img src="{{ asset('goods/' . $good->image) }}"
+              <img src="{{ asset('storage/' . $good->image) }}"
                 alt="{{ $good->name }}"
                 class="product-image"
                 onerror="this.src='{{ asset('goods/yojibomber.png')}}'">

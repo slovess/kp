@@ -556,17 +556,12 @@
     </style>
     @include('components.header')
 
-    @session('success')
-        <div class="session-active-message">
-            {{session('success')}}
-        </div>
-    @endsession
 
     <main class="product-content">
         <article class="product-details" data-el="div-1">
             <div class="product-layout">
                 <section class="product-gallery">
-                    <img src="{{ $good->image }}" class="product-image1" alt="Product Image" />
+                    <img src="{{ asset('storage/' . $good->image) }}" class="product-image1" alt="Product Image" />
                 </section>
 
                 <section class="product-info">
@@ -579,22 +574,34 @@
 
                         </p>
                     </div>
-                    <p class="product-price">{{ $good->price }}</p>
+                        <div class="price">
+    
+                    <p class="product-price">{{ $good->price }} руб.</p>
                     <div class="price-color">
-
+                    </div>
                         <h2 class="color-label">цвет:</h2>
                         <div class="color-label1">{{ $good->color->title }} </div>
                     </div>
+                   @if($inCart)
+    <button class="buy-button disabled" disabled>Уже в корзине</button>
+@else
+    <form action="{{ route('cart.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="goods_id" value="{{ $good->id }}">
+        <button type="submit" class="buy-button">КУПИТЬ</button>
+    </form>
+@endif
+@if(session('error'))
+    <div class="session-error-message">
+        {{ session('error') }}
+    </div>
+@endif
 
-
-                    <h2 class="product-summary">Коротко о товаре:</h2>
-                    <p class="product-title" style="width:400px;">{{ $good->description }}</p>
-                    <form action="{{ route('cart.add', ['id' => $good->id,'userId' => $userId]) }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="goods_id" value="{{ $good->id }}">
-                        <input type="hidden" name="user_id" value="{{ $userId }}">
-                        <button type="submit" class="buy-button">КУПИТЬ</button>
-                    </form>
+@if(session('success'))
+    <div class="session-success-message">
+        {{ session('success') }}
+    </div>
+@endif
                 </section>
             </div>
         </article>
@@ -602,13 +609,7 @@
         <section class="product-tabs">
             <div class="tabs-header">
                 <h2 class="tab-active">описание</h2>
-                <div class="tabs-divider">
-                    <span class="divider"></span>
-                    <h2 class="tab">характеристики</h2>
-                    <span class="divider"></span>
-                    <h2 class="tab">отзывы</h2>
-                    <span class="divider"></span>
-                </div>
+               
             </div>
             <hr class="tab-separator" />
             <p class="description-text">
@@ -619,7 +620,7 @@
         <div class="section-header">
             <a href="#" class="in_link">
                 <h2 class="section-title">Популярные позиции</h2>
-                <img src="http://127.0.0.1:8001/Polygon3.png" class="section-icon" alt="Popular items icon" />
+                <img src="http://127.0.0.1:8000/Polygon3.png" class="section-icon" alt="Popular items icon" />
             </a>
         </div>
 
@@ -628,7 +629,7 @@
             <div class="product-card">
                 <a href="{{ route('goods.show', $good->id) }}" class="product-link">
                     <div class="product-image-container">
-                        <img src="{{ asset('goods/' . $good->image) }}"
+                        <img src="{{ asset('storage/' . $good->image) }}"
                             alt="{{ $good->name }}"
                             class="product-image"
                             onerror="this.src='{{ asset('goods/yojibomber.png')}}'">

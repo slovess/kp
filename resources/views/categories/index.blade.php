@@ -223,7 +223,7 @@
       transition: transform 0.3s ease;
       position: relative;
       /* Добавляем для позиционирования */
-      height: 280px;
+      height: 300px;
       /* Фиксированная высота блока */
     }
 
@@ -294,7 +294,7 @@
       @foreach($categories as $index => $category)
       @if($index >= 5)
       <article class="category-card">
-        <a href="#" class="cat_link">
+        <a href="{{ route('categories.show', $category->id) }}" class="cat_link">
           <img src="{{ $category->getImagePath() }}" alt="{{ $category->title }}" class="category-image" />
           <h2 class="category-title">{{ $category['title'] }}</h2>
         </a>

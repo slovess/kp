@@ -23,13 +23,15 @@ class ProfileController extends Controller
             'surname' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'patronymic' => 'required|string|max:255',
-            'birthday' => 'nullable|date',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'birthday' => 'nullable|date|before_or_equal:today',
+            'email' => 'required|email:rfc,dns|unique:users,email,' . $user->id,
         ]);
 
-        $user->update($validated);
-
-        return redirect()->route('profile.show')->with('success', 'Профиль обновлен.');
+       if ($user->update($validated)) {
+    return redirect()->route('profile.show')->with('success', 'Профиль обновлен.');
+} else {
+    return back()->with('error', 'Не удалось обновить профиль.');
+}
     }
 
     public function logout(Request $request)

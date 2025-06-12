@@ -1,365 +1,264 @@
 <!DOCTYPE html>
 <html lang="ru">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-<title>КОРЗИНА</title>
-
 <head>
+    <meta charset="UTF-8">
+    <title>КОРЗИНА</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        .basket {
-            background-color: #fff;
-            overflow: hidden;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .header {
+        body {
+            font-family: 'Montserrat', sans-serif;
+            
+        }
+
+        .main-header, .site-footer {
             background-color: #670808;
-            display: flex;
-            width: 100%;
-            padding: 33px 38px;
-            align-items: center;
-            gap: 20px;
-            font-family:
-                Montserrat,
-                -apple-system,
-                Roboto,
-                Helvetica,
-                sans-serif;
-            font-size: 16px;
             color: #e5e5e5;
-            font-weight: 600;
-            white-space: nowrap;
-            letter-spacing: 0.8px;
+            padding: 32px 38px;
+            display: flex;
             justify-content: space-between;
+            align-items: center;
+              font-weight: 600;
         }
 
         .logo {
-            aspect-ratio: 1.1;
-            object-fit: contain;
-            object-position: center;
             width: 75px;
-            align-self: stretch;
-            flex-shrink: 0;
         }
 
         .main-nav {
-            align-self: stretch;
             display: flex;
-            margin: auto 0;
-            align-items: stretch;
             gap: 100px;
         }
 
-        .nav-link {
-            color: #e5e5e5;
-            text-decoration: none;
-        }
-
-        .auth-link {
-            align-self: stretch;
-            margin: auto 0;
-            color: #e5e5e5;
+        .nav-link, .auth-link {
+            color: inherit;
             text-decoration: none;
         }
 
         .cart-content {
-            margin: 72px 33px 0;
-            width: 100%;
-            max-width: 1242px;
-        }
-
-        .content-wrapper {
-            gap: 20px;
-            display: flex;
-        }
-
-        .catalog-column {
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            line-height: normal;
-            width: 76%;
+            max-width: 1240px;
+            margin: 72px auto;
+            padding: 0 20px;
         }
 
         .catalog-header {
-            display: flex;
-            width: 100%;
-            flex-direction: column;
-            align-items: flex-start;
-            font-family:
-                Montserrat,
-                -apple-system,
-                Roboto,
-                Helvetica,
-                sans-serif;
-            font-size: 24px;
+            margin-bottom: 40px;
             color: #670808;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-        }
-
-        .catalog-title-wrapper {
-            display: flex;
-            align-items: stretch;
-            gap: 42px;
-
-            white-space: nowrap;
-        }
-
-        .catalog-icon {
-            aspect-ratio: 0.61;
-            object-fit: contain;
-            object-position: center;
-            width: 30px;
-            flex-shrink: 0;
-        }
-
-        .catalog-title {
-            text-decoration: none;
-            display: flex;
-            margin: auto 0;
-            font-size: 24px;
+              font-weight: 600;
         }
 
         .cart-status {
-            margin-top: 59px;
-        }
-
-        .cart-count {
+            margin-top: 10px;
             color: #868484;
         }
 
-        .cart-image {
-            aspect-ratio: 2.36;
-            object-fit: contain;
-            object-position: center;
-            width: 100%;
-            align-self: stretch;
-            margin-top: 57px;
+        .content-wrapper {
+            display: flex;
+            gap: 30px;
+        }
+
+        .catalog-column {
+            flex: 3;
         }
 
         .order-column {
+           
+            flex: 1;
+        }
+
+        .cart-item {
             display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            line-height: normal;
-            width: 24%;
-            margin-left: 20px;
+            gap: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .cart-image {
+            width: 180px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .order-summary {
-            display: flex;
-            margin-top: 335px;
-            width: 100%;
-            flex-direction: column;
-            align-items: flex-start;
-            font-family:
-                Montserrat,
-                -apple-system,
-                Roboto,
-                Helvetica,
-                sans-serif;
-            font-size: 20px;
-            color: #000;
-            font-weight: 600;
+            flex: 1;
         }
 
         .product-header {
             display: flex;
-            align-items: stretch;
-            gap: 26px;
-            font-size: 16px;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .close-icon-button {
+            background: transparent;
+            border: none;
+            cursor: pointer;
         }
 
         .close-icon {
-            object-fit: contain;
-            object-position: center;
             width: 19px;
-            align-self: flex-start;
+        }
+
+        .size-info, .price, .quantity, .item-total {
+            margin-top: 10px;
+        }
+
+        .quantity-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-button {
+            background-color: #670808;
+            color: white;
+            border: none;
+            padding: 4px 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quantity-value {
+            font-weight: 600;
+        }
+
+        .total-summary {
             margin-top: 20px;
-
-        }
-
-        .size-info {
-            margin-top: 21px;
-        }
-
-        .size-value {
-            font-weight: 500;
-            color: #670808;
-        }
-
-        .price {
-            margin-top: 23px;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .checkout-button {
             background-color: #670808;
-            width: 100%;
-            margin-top: 23px;
-            padding: 13px 28px;
-            color: #fff;
+            color: white;
             border: none;
-
-            font-size: inherit;
-            font-weight: inherit;
-            cursor: pointer;
-        }
-        .close-icon-button {
-            background-color: #670808;
+            padding: 12px 20px;
+            margin-top: 20px;
             width: 100%;
-            margin-top: 23px;
-            padding: 13px 28px;
-            color: #fff;
-            border: none;
-
-            font-size: inherit;
-            font-weight: inherit;
             cursor: pointer;
-        }
-        .footer {
-            background-color: #670808;
-            display: flex;
-            margin-top: 189px;
-            padding: 36px 50px;
-            align-items: stretch;
-            gap: 20px;
-            font-family:
-                Montserrat,
-                -apple-system,
-                Roboto,
-                Helvetica,
-                sans-serif;
             font-size: 16px;
-            color: #e5e5e5;
             font-weight: 600;
-            letter-spacing: 0.8px;
-            justify-content: space-between;
+            border-radius: 5px;
         }
 
-        .footer-nav {
+        .checkout-button:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .site-footer {
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-logo {
+            width: 75px;
+        }
+
+        .footer-nav, .social-links {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            white-space: nowrap;
         }
 
-        .footer-link {
-            color: #e5e5e5;
+        .footer-link, .social-link {
             text-decoration: none;
-        }
-
-        .footer-link:not(:first-child) {
-            margin-top: 22px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .social-link {
-            color: #e5e5e5;
-            text-decoration: none;
-        }
-
-        .social-link:not(:first-child) {
-            margin-top: 22px;
-        }
-
-        .email-link {
-            color: #e5e5e5;
-            text-decoration: none;
-            margin-top: 29px;
-        }
-
-        .hrefcat {
-            text-decoration: none;
-            color: #670808;
-        }
-
-        .in-link {
-            text-decoration: none;
+            color: inherit;
+            margin-top: 10px;
         }
     </style>
-    <header class="header">
-        <img src="https://ibb.co/svWV4PPr" alt="Logo" class="logo" />
-        <nav class="main-nav">
-            <a href="{{ url('/') }}" class="nav-link">ГЛАВНАЯ</a>
-            <a href="#" class="nav-link">КОНТАКТЫ</a>
-        </nav>
-        <a href="{{ url('register') }}" class="auth-link">РЕГИСТРАЦИЯ|ВХОД</a>
-    </header>
-
-    <section class="cart-content">
-        <div class="content-wrapper">
-            <div class="catalog-column">
-                <div class="catalog-header">
-                    <div class="catalog-title-wrapper">
-                        <a href="{{ url('catalog') }}" class="hrefcat">
-                            <h1 class="catalog-title">КАТАЛОГ</h1>
-                        </a>
-                    </div>
-                    <p class="cart-status">
-                        КОРЗИНА
-                        <span class="cart-count">{{ $cartItems->count() }} товар(ов)</span>
-                    </p>
-                    @foreach ($cartItems as $cartItem)
-                        @if ($cartItem->good)
-                            <img src="{{ asset('goods/' . $cartItem->good->image) }}"
-                                alt="{{ $cartItem->good->name }}" class="cart-image"
-                                onerror="this.src='{{ asset('categories/default.jpg') }}'">
-                        @endif
-                    @endforeach
-                </div>
-            </div>
-
-            <div class="order-column">
-                @foreach ($cartItems as $item)
-                    <div class="order-summary">
-                        <div class="product-header">
-                            <h2 class="product-title">{{ $item->name }}</h2>
-                            <form action="{{ route('cart.remove', $item) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="close-icon-button">
-                                   <h2>УДАЛИТЬ</h2>
-                                </button>
-                            </form>
-                        </div>
-                        <p class="size-info">
-                            Размер:
-                            <span class="size-value">{{ $item->good->size }}</span>
-                        </p>
-                        <p class="price">{{ $item->good->price }} руб.</p>
-                        <p class="quantity">Количество: {{ $item->quantity }}</p>
-                    </div>
-                @endforeach
-                <a href="#" class="in_link">
-                    <button class="checkout-button">ОФОРМИТЬ ЗАКАЗ</button>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <img src="https://ibb.co/svWV4PPr" alt="Logo" class="logo" />
-        <nav class="footer-nav">
-            <a href="{{ url('/') }}" class="footer-link">ГЛАВНАЯ</a>
-            <a href="#" class="footer-link">КОНТАКТЫ</a>
-            <a href="{{ url('register') }}" class="footer-link">РЕГИСТРАЦИЯ|ВХОД</a>
-        </nav>
-        <div class="contact-info">
-            <a href="#" class="social-link">НАШ TG</a>
-            <a href="#" class="social-link">НАШ VK</a>
-            <a href="mailto:CARTEMOUS@GMAIL.COM" class="email-link">CARTEMOUS@GMAIL.COM</a>
-        </div>
-    </footer>
-    </main>
-
 </head>
-
 <body>
 
-</body>
+@include('components.header')
 
+<section class="cart-content">
+    <div class="catalog-header">
+        <a href="{{ url('catalog') }}" class="catalog-title" style="font-size: 24px; text-decoration: none; color: #670808;">КАТАЛОГ</a>
+        <p class="cart-status">КОРЗИНА <span class="cart-count">{{ $cartItems->count() }} товар(ов)</span></p>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="catalog-column">
+            @foreach ($cartItems as $item)
+                @if ($item->good)
+                    <div class="cart-item">
+                        <img src="{{ asset('storage/' . $item->good->image) }}"
+                             alt="{{ $item->good->name }}"
+                             class="cart-image"
+                             onerror="this.src='{{ asset('categories/default.jpg') }}'">
+
+                        <div class="order-summary">
+                            <div class="product-header">
+                                <h2 class="product-title">{{ $item->good->name }}</h2>
+                                <form action="{{ route('cart.remove', $item) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="close-icon-button">
+                                        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"
+                                             alt="Удалить"
+                                             class="close-icon" />
+                                    </button>
+                                </form>
+                            </div>
+
+                            <p class="size-info">Размер: <span class="size-value">{{ $item->good->size }}</span></p>
+
+                            <div class="quantity">
+                                <form action="{{ route('cart.update', $item) }}" method="POST" class="update-form">
+                                    @csrf
+                                    @method('PATCH')
+                                    <div class="quantity-buttons">
+                                        Количество:
+                                        <span class="quantity-value">{{ $item->quantity }}</span>
+                                      
+                                    </div>
+                                </form>
+                            </div>
+
+                            @php
+                                $itemTotal = $item->good->price * $item->quantity;
+                            @endphp
+
+                            <p class="item-total">Сумма: {{ number_format($itemTotal, 2, ',', ' ') }} руб.</p>
+                        </div>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+
+        <div class="order-column">
+            @php
+                $total = 0;
+                foreach ($cartItems as $item) {
+                    if ($item->good) {
+                        $total += $item->good->price * $item->quantity;
+                    }
+                }
+            @endphp
+
+            <div class="total-summary">Итого: {{ number_format($total, 2, ',', ' ') }} руб.</div>
+
+            @if($cartItems->count() > 0)
+                <form action="{{ url('/') }}" method="GET">
+                    <button type="submit" class="checkout-button">ОФОРМИТЬ ЗАКАЗ</button>
+                </form>
+            @else
+                <button class="checkout-button" disabled>КОРЗИНА ПУСТА</button>
+            @endif
+        </div>
+    </div>
+</section>
+
+@include('components.footer')
+
+</body>
 </html>
+

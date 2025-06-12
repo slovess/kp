@@ -3,7 +3,13 @@
      <nav class="footer-nav">
          <a href="{{ route('home') }}" class="footer-link">ГЛАВНАЯ</a>
          <a href="#" class="footer-link">КОНТАКТЫ</a>
-         <a href="{{ route('register') }}" class="footer-link">РЕГИСТРАЦИЯ|ВХОД</a>
+          @auth
+    <a href="{{ url('profile') }}" class="auth-link">
+        Привет, {{ Auth::user()->name }}!
+    </a>
+    @else
+    <a href="{{ route('login') }}" class="auth-link">РЕГИСТРАЦИЯ|ВХОД</a>
+    @endauth
      </nav>
      <div class="social-links">
          <a href="#" class="social-link">НАШ TG</a>
