@@ -94,15 +94,15 @@
 
     .page-title {
       color: rgb(103, 8, 8);
-      font-size: 24px;
+      font-size: 48px;
       font-family:
         Montserrat,
         -apple-system,
         Roboto,
         Helvetica,
         sans-serif;
-      font-weight: 600;
-      letter-spacing: 1.2px;
+      font-weight: 800;
+      letter-spacing: 2px;
       align-self: center;
       margin-top: 81px;
     }
@@ -216,7 +216,7 @@
       transition: transform 0.3s ease;
       position: relative;
       /* Добавляем для позиционирования */
-      height: 300px;
+      height: 280px;
       /* Фиксированная высота блока */
     }
 
@@ -548,6 +548,290 @@
         font-size: 16px;
       }
     }
+
+    /* Добавить в конец существующих стилей */
+
+    /* Планшеты */
+@media (max-width: 1024px) {
+  .main-header {
+    padding: 20px 30px;
+  }
+
+  .main-nav {
+    gap: 50px;
+  }
+
+  .auth-link {
+    margin-right: 40px;
+  }
+
+  .page-title {
+    font-size: 20px;
+    margin-top: 60px;
+  }
+
+  .content {
+    margin-top: 60px;
+  }
+
+  .banner-grid {
+    gap: 40px;
+  }
+
+  .section-header {
+    margin-top: 50px;
+    font-size: 20px;
+  }
+
+  .categories-grid,
+  .products-grid {
+    padding: 0 40px;
+    margin-top: 40px;
+    gap: 15px;
+    margin-left: 0;
+  }
+
+  .category-card,
+  .product-card {
+    width: 180px;
+    height: 260px;
+  }
+
+  .category-image,
+  .product-image {
+    height: 140px;
+  }
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 15px 20px;
+  }
+
+  .main-nav {
+    gap: 30px;
+  }
+
+  .auth-link {
+    margin-right: 20px;
+    margin-top: 15px;
+  }
+
+  .page-title {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+
+  .content {
+    margin-top: 40px;
+  }
+
+  .banner-container {
+    padding: 0 20px;
+  }
+
+  .banner-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .banner-column {
+    width: 100%;
+    margin: 0;
+  }
+
+  .banner-column:last-child {
+    margin-left: 0;
+  }
+
+  .banner-image,
+  .banner-image-2 {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+
+  .section-header {
+    margin-top: 40px;
+    font-size: 18px;
+    padding: 0 20px;
+    align-self: center;
+  }
+
+  .in_link {
+    margin-left: 0;
+    justify-content: center;
+  }
+
+  .categories-grid,
+  .products-grid {
+    padding: 0 20px;
+    margin-top: 30px;
+    justify-content: center;
+    gap: 15px;
+    margin-left: 0;
+  }
+
+  .category-card,
+  .product-card {
+    width: 160px;
+    height: 240px;
+    margin: 8px;
+  }
+
+  .category-image-container,
+  .product-image-container {
+    height: 120px;
+  }
+
+  .category-image,
+  .product-image {
+    height: 120px;
+    margin-top: 10px;
+  }
+
+  .category-title,
+  .product-title {
+    font-size: 14px;
+    padding: 10px;
+    height: 80px;
+  }
+
+  .product-price {
+    font-size: 16px;
+  }
+
+  .main-footer {
+    margin-top: 60px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .footer-contact {
+    margin-right: 0;
+  }
+}
+
+/* Маленькие мобильные */
+@media (max-width: 480px) {
+  .main-header {
+    padding: 10px 15px;
+  }
+
+  .main-nav {
+    gap: 20px;
+  }
+
+  .auth-link {
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+
+  .page-title {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+
+  .content {
+    margin-top: 30px;
+  }
+
+  .banner-container {
+    padding: 0 15px;
+  }
+
+  .section-header {
+    font-size: 16px;
+    margin-top: 30px;
+    padding: 0 15px;
+  }
+
+  .section-icon {
+    width: 14px;
+  }
+
+  .categories-grid,
+  .products-grid {
+    padding: 0 15px;
+    margin-top: 25px;
+    gap: 10px;
+    justify-content: space-around;
+  }
+
+  .category-card,
+  .product-card {
+    width: 140px;
+    height: 220px;
+    margin: 5px;
+  }
+
+  .category-image-container,
+  .product-image-container {
+    height: 100px;
+  }
+
+  .category-image,
+  .product-image {
+    height: 100px;
+  }
+
+  .category-title,
+  .product-title {
+    font-size: 12px;
+    padding: 5px;
+    height: 45px;
+  }
+
+  .product-price {
+    font-size: 14px;
+  }
+
+  .main-footer {
+    padding: 15px;
+  }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 360px) {
+  .categories-grid,
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    justify-items: center;
+  }
+
+  .category-card,
+  .product-card {
+    width: 130px;
+    height: 200px;
+    margin: 0;
+  }
+
+  .category-image-container,
+  .product-image-container {
+    height: 90px;
+  }
+
+  .category-image,
+  .product-image {
+    height: 90px;
+  }
+
+  .category-title,
+  .product-title {
+    font-size: 11px;
+    height: 60px;
+    padding: 6px;
+  }
+
+  .product-price {
+    font-size: 13px;
+  }
+}
   </style>
 </head>
 
@@ -561,14 +845,12 @@
       <div class="banner-container">
         <div class="banner-grid">
           <div class="banner-column">
-            <img
-              src="{{ asset('img/banner1.png') }}"
+            <img src="{{ asset('img/banner1.png') }}"
               class="banner-image"
               alt="Banner image 1" />
           </div>
           <div class="banner-column">
-            <img
-              src="{{ asset('img/banner2.png') }}"
+            <img src="{{ asset('img/banner2.png') }}"
               class="banner-image-2"
               alt="Banner image 2" />
           </div>

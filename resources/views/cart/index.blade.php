@@ -13,7 +13,6 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            
         }
 
         .main-header, .site-footer {
@@ -23,7 +22,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-              font-weight: 600;
+            font-weight: 600;
         }
 
         .logo {
@@ -49,7 +48,7 @@
         .catalog-header {
             margin-bottom: 40px;
             color: #670808;
-              font-weight: 600;
+            font-weight: 600;
         }
 
         .cart-status {
@@ -67,7 +66,6 @@
         }
 
         .order-column {
-           
             flex: 1;
         }
 
@@ -173,6 +171,274 @@
             color: inherit;
             margin-top: 10px;
         }
+
+        /* Бургер-меню стили */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .burger-menu:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .burger-line {
+            width: 25px;
+            height: 3px;
+            background: #e5e5e5;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu.active .burger-line:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .burger-menu.active .burger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active .burger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Планшеты */
+        @media (max-width: 1024px) {
+            .cart-content {
+                max-width: 100%;
+                margin: 50px auto;
+                padding: 0 30px;
+            }
+            
+            .catalog-header {
+                margin-bottom: 30px;
+            }
+            
+            .content-wrapper {
+                gap: 20px;
+            }
+            
+            .cart-image {
+                width: 150px;
+            }
+            
+            .order-column {
+                min-width: 200px;
+            }
+        }
+
+        /* Мобильные устройства */
+        @media (max-width: 768px) {
+            .main-header, .site-footer {
+                padding: 20px;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .logo {
+                width: 60px;
+            }
+
+            .main-nav {
+                display: none;
+            }
+
+            .auth-link {
+                display: none;
+            }
+
+            .burger-menu {
+                display: flex;
+            }
+            
+            .cart-content {
+                margin: 30px auto;
+                padding: 0 20px;
+            }
+            
+            .catalog-header a {
+                font-size: 20px;
+            }
+            
+            .cart-status {
+                font-size: 14px;
+                margin-top: 8px;
+            }
+            
+            .content-wrapper {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .catalog-column {
+                order: 2;
+            }
+
+            .order-column {
+                width: 100%;
+                order: 1;
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 8px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                gap: 15px;
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            
+            .cart-image {
+                width: 100%;
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            
+            .order-summary {
+                width: 100%;
+            }
+            
+            .product-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .close-icon-button {
+                order: -1;
+                align-self: flex-end;
+            }
+            
+            .product-title {
+                font-size: 16px;
+                text-align: center;
+            }
+            
+            .size-info, .quantity, .item-total {
+                text-align: center;
+                margin-top: 8px;
+            }
+            
+            .quantity-buttons {
+                justify-content: center;
+            }
+            
+            .total-summary {
+                text-align: center;
+                font-size: 20px;
+            }
+            
+            .checkout-button {
+                padding: 15px 20px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header, .site-footer {
+                padding: 15px;
+            }
+
+            .logo {
+                width: 50px;
+            }
+            
+            .cart-content {
+                margin: 20px auto;
+                padding: 0 15px;
+            }
+            
+            .catalog-header a {
+                font-size: 18px;
+            }
+            
+            .cart-status {
+                font-size: 13px;
+            }
+            
+            .cart-item {
+                margin-bottom: 20px;
+                padding-bottom: 15px;
+            }
+            
+            .cart-image {
+                max-width: 150px;
+            }
+            
+            .product-title {
+                font-size: 14px;
+            }
+            
+            .size-info, .quantity, .item-total {
+                font-size: 14px;
+            }
+            
+            .quantity-button {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            
+            .total-summary {
+                font-size: 18px;
+            }
+            
+            .checkout-button {
+                padding: 12px 16px;
+                font-size: 16px;
+            }
+            
+            .close-icon {
+                width: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .main-header, .site-footer {
+                padding: 10px;
+            }
+
+            .logo {
+                width: 45px;
+            }
+            
+            .cart-content {
+                padding: 0 10px;
+            }
+            
+            .catalog-header a {
+                font-size: 16px;
+            }
+            
+            .cart-image {
+                max-width: 120px;
+            }
+            
+            .product-title {
+                font-size: 13px;
+            }
+            
+            .size-info, .quantity, .item-total {
+                font-size: 13px;
+            }
+            
+            .total-summary {
+                font-size: 16px;
+            }
+            
+            .checkout-button {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -261,4 +527,5 @@
 
 </body>
 </html>
+
 

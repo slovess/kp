@@ -2,14 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\BasketController;
-use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\GoodsController;
+use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\GoodController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\Auth\RegisterController;
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('goods', GoodController::class);
@@ -19,7 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/logout', [ProfileController::class, 'logout'])->name('logout');
 });
-
+Route::get('/contacts', [ContactController::class, 'index'])->name('contacts.index');
 
 Route::get('/goods/{id}', [GoodsController::class, 'show'])->name('goods.show');
 Route::post('/goods/{id}/{userId}', [BasketController::class, 'store'])->name('cart.add');
@@ -40,10 +41,10 @@ Route::patch('/cart/{cart}', [BasketController::class, 'update'])->name('cart.up
 Route::post('/cart/store', [\App\Http\Controllers\BasketController::class, 'store'])->name('cart.store');
 
 Route::get('/categori/{id}', [CategoryController::class, 'show'])->name('categories.show');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
    
-    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 });
 

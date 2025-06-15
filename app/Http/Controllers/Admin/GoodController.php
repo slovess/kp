@@ -16,14 +16,12 @@ class GoodController extends Controller
 {
     public function index()
     {
-        $perPage = request('per_page', 15); // По умолчанию 15
-        $perPage = in_array($perPage, [10, 15, 25, 50]) ? $perPage : 15; // Валидация
+        $perPage = request('per_page', 15); 
+        $perPage = in_array($perPage, [10, 15, 25, 50]) ? $perPage : 15; 
 
         $goods = Good::with(['brand', 'category', 'location', 'material', 'color'])
             ->latest()
             ->paginate($perPage);
-
-        // Сохраняем параметр per_page в ссылках пагинации
         $goods->appends(request()->query());
 
         return view('admin.goods.index', compact('goods'));

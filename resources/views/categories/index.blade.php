@@ -247,15 +247,15 @@
 
     .page-title {
       color: rgb(103, 8, 8);
-      font-size: 24px;
+      font-size: 48px;
       font-family:
         Montserrat,
         -apple-system,
         Roboto,
         Helvetica,
         sans-serif;
-      font-weight: 600;
-      letter-spacing: 1.2px;
+      font-weight: 800;
+      letter-spacing: 2px;
       align-self: center;
       margin-top: 81px;
     }
@@ -303,21 +303,7 @@
       @endforeach
     </section>
 
-    <footer class="main-footer">
-      <img src="https://i.ibb.co/VWwqGNN8/logo.png " alt="Logo" class="logo" />
-
-      <nav class="footer-nav">
-        <a href="{{ url('/') }}" class="footer-link">ГЛАВНАЯ</a>
-        <a href="#" class="footer-link">КОНТАКТЫ</a>
-        <a href="{{ route('login') }}" class="footer-link">РЕГИСТРАЦИЯ|ВХОД</a>
-      </nav>
-
-      <div class="contact-info">
-        <a href="#" class="contact-link">НАШ TG</a>
-        <a href="#" class="contact-link">НАШ VK</a>
-        <a href="mailto:CARTEMOUS@GMAIL.COM" class="contact-link">CARTEMOUS@GMAIL.COM</a>
-      </div>
-    </footer>
+  @include('components.footer')
   </div>
 </body>
 

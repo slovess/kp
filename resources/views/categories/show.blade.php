@@ -93,7 +93,7 @@
       transition: transform 0.3s ease;
       position: relative;
       /* Добавляем для позиционирования */
-      height: 300px;
+      height: 280px;
       /* Фиксированная высота блока */
     }
 
@@ -204,14 +204,14 @@
     }
     .page-title {
       color: rgb(103, 8, 8);
-      font-size: 24px;
+      font-size: 48px;
       font-family:
         Montserrat,
         -apple-system,
         Roboto,
         Helvetica,
         sans-serif;
-      font-weight: 600;
+      font-weight: 800;
       letter-spacing: 1.2px;
       align-self: center;
       margin-top: 81px;
@@ -234,13 +234,188 @@
       margin-bottom: 10px;
     }
 
+/* Мобильная адаптивность */
+@media (max-width: 768px) {
+  .category {
+    font-size: 14px;
+  }
+  
+  .main-header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  
+  .logo {
+    width: 60px;
+  }
+  
+  .main-nav {
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .nav-link, .auth-link {
+    margin-right: 0;
+    font-size: 14px;
+  }
+  
+  .page-title {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+  
+  .category-grid {
+    padding: 0 20px;
+    margin-top: 40px;
+    justify-content: center;
+    gap: 15px;
+    order: 1;
+  }
+  
+  .category-card {
+    width: 160px;
+    height: 260px;
+    margin: 8px;
+  }
+  
+  .category-image {
+    height: 120px;
+    margin-top: 10px;
+  }
+  
+  .category-name {
+    font-size: 14px;
+    margin-top: 15px;
+  }
+  
+  .product-price {
+    font-size: 16px;
+  }
+  
+  .main-footer {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+    padding: 20px 15px;
+    gap: 15px;
+  }
+  
+  .footer-nav, .contact-info {
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .footer-link, .contact-link {
+    margin-top: 15px;
+    margin-right: 0;
+    font-size: 14px;
+  }
+}
 
+@media (max-width: 480px) {
+  .main-header {
+    padding: 12px 15px;
+  }
+  
+  .logo {
+    width: 50px;
+  }
+  
+  .main-nav {
+    gap: 20px;
+  }
+  
+  .nav-link, .auth-link {
+    font-size: 13px;
+    padding: 5px;
+  }
+  
+  .page-title {
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  
+  .category-grid {
+    padding: 0 15px;
+    margin-top: 30px;
+    gap: 10px;
+  }
+  
+  .category-card {
+    width: 140px;
+    height: 240px;
+    margin: 5px;
+  }
+  
+  .category-image {
+    height: 100px;
+  }
+  
+  .category-name {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  
+  .product-price {
+    font-size: 15px;
+  }
+  
+  .main-footer {
+    margin-top: 60px;
+    padding: 15px 10px;
+  }
+  
+  .footer-link, .contact-link {
+    font-size: 13px;
+    margin-top: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .main-nav {
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .page-title {
+    font-size: 15px;
+  }
+  
+  .category-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0 10px;
+  }
+  
+  .category-card {
+    width: 100%;
+    max-width: 130px;
+    height: 220px;
+  }
+  
+  .category-image {
+    height: 90px;
+  }
+  
+  .category-name {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  
+  .product-price {
+    font-size: 14px;
+  }
+}
   </style>
 </head>
 
 <body>
-  <div class="category">
     @include('components.header')
+  <div class="category">
+
 
 
     <h1 class="page-title">{{ $category->title }}</h1>
@@ -259,22 +434,9 @@
 
 
 
-    <footer class="main-footer">
-      <img src="https://i.ibb.co/VWwqGNN8/logo.png " alt="Logo" class="logo" />
 
-      <nav class="footer-nav">
-        <a href="{{ url('/') }}" class="footer-link">ГЛАВНАЯ</a>
-        <a href="#" class="footer-link">КОНТАКТЫ</a>
-        <a href="{{ route('login') }}" class="footer-link">РЕГИСТРАЦИЯ|ВХОД</a>
-      </nav>
-
-      <div class="contact-info">
-        <a href="#" class="contact-link">НАШ TG</a>
-        <a href="#" class="contact-link">НАШ VK</a>
-        <a href="mailto:CARTEMOUS@GMAIL.COM" class="contact-link">CARTEMOUS@GMAIL.COM</a>
-      </div>
-    </footer>
   </div>
+    @include('components.footer')
 </body>
 
 </html>
