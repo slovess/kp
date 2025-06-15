@@ -19,6 +19,6 @@ class EnsureUserIsAdmin
             return $next($request);
         }
 
-        return redirect()->route('index');
+        return redirect()->route('home');
     }
 }
