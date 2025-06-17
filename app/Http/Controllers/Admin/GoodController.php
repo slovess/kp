@@ -16,12 +16,21 @@ class GoodController extends Controller
 {
     public function index()
     {
-        $perPage = request('per_page', 15); 
-        $perPage = in_array($perPage, [10, 15, 25, 50]) ? $perPage : 15; 
+        $perPage = request('per_page', 15);
+        $perPage = in_array($perPage, [10, 15, 25, 50]) ? $perPage : 15;
+        
+        $sortBy = request('sort_by', 'id');
+        $sortOrder = request('sort_order', 'desc');
+        
+        // Validate sort parameters
+        $allowedSorts = ['id', 'name', 'price', 'created_at'];
+        $sortBy = in_array($sortBy, $allowedSorts) ? $sortBy : 'id';
+        $sortOrder = in_array($sortOrder, ['asc', 'desc']) ? $sortOrder : 'desc';
 
         $goods = Good::with(['brand', 'category', 'location', 'material', 'color'])
-            ->latest()
+            ->orderBy($sortBy, $sortOrder)
             ->paginate($perPage);
+
         $goods->appends(request()->query());
 
         return view('admin.goods.index', compact('goods'));
@@ -50,7 +59,6 @@ class GoodController extends Controller
             'brand_id' => 'required|exists:brands,id',
             'category_id' => 'required|exists:categories,id',
             'location_id' => 'required|exists:locations,id',
-            'material_id' => 'required|exists:materials,id',
             'color_id' => 'required|exists:colors,id',
         ]);
 
@@ -61,7 +69,10 @@ class GoodController extends Controller
             $data['image'] = $request->file('image')->store('goods', 'public');
         }
 
-        Good::create($data);
+        $good = Good::create($data);
+        if ($request->has('material_ids')) {
+            $good->materials()->attach($request->material_ids);
+        }
         return redirect()->route('admin.goods.index')->with('success', 'Товар добавлен!');
     }
 
@@ -90,7 +101,6 @@ class GoodController extends Controller
         'brand_id' => 'required|exists:brands,id',
         'category_id' => 'required|exists:categories,id',
         'location_id' => 'required|exists:locations,id',
-        'material_id' => 'required|exists:materials,id',
         'color_id' => 'required|exists:colors,id',
     ]);
 
@@ -101,7 +111,6 @@ class GoodController extends Controller
     $good->brand_id = $validated['brand_id'] ?? null;
     $good->category_id = $validated['category_id'] ?? null;
     $good->location_id = $validated['location_id'] ?? null;
-    $good->material_id = $validated['material_id'] ?? null;
     $good->color_id = $validated['color_id'] ?? null;
     $good->isPopular = $request->has('isPopular') ? 1 : 0;
     $good->isPresence = $request->has('isPresence') ? 1 : 0;
@@ -112,6 +121,10 @@ class GoodController extends Controller
         }
 
         $good->image = $request->file('image')->store('goods', 'public');
+    }
+
+    if ($request->has('material_ids')) {
+        $good->materials()->sync($request->material_ids);
     }
 
     $good->save();
@@ -130,4 +143,3 @@ class GoodController extends Controller
         return redirect()->route('admin.goods.index')->with('success', 'Товар удален!');
     }
 }
-

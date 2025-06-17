@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,7 +99,7 @@
 
         .contact-link {
             display: inline-block;
-            background:  #670808;
+            background: #670808;
             color: white;
             text-decoration: none;
             padding: 15px 30px;
@@ -142,7 +143,7 @@
             padding: 20px;
             border-radius: 15px;
             background: white;
-        
+
         }
 
         .info-item h4 {
@@ -309,56 +310,61 @@
         }
     </style>
 </head>
+
 <body>
 
-@include('components.header')
+    @include('components.header')
 
-<div class="contacts-container">
-    <div class="page-header">
-        <h1 class="page-title">КОНТАКТЫ</h1>
-        <p class="page-subtitle">Свяжитесь с нами удобным для вас способом. Мы всегда готовы помочь и ответить на ваши вопросы!</p>
-    </div>
-
-    <div class="contacts-grid">
-        <div class="contact-card">
-            <div class="contact-icon">📱</div>
-            <h3 class="contact-title">TELEGRAM КАНАЛ</h3>
-            <p class="contact-description">
-                Подписывайтесь на наш Telegram канал, чтобы первыми узнавать о новинках, акциях и специальных предложениях!
-            </p>
-            <a href="https://t.me/gvrlvch" target="_blank" class="contact-link">
-                ПЕРЕЙТИ В TELEGRAM
-            </a>
+    <div class="contacts-container">
+        <div class="page-header">
+            <h1 class="page-title">КОНТАКТЫ</h1>
+            <p class="page-subtitle">Свяжитесь с нами удобным для вас способом. Мы всегда готовы помочь и ответить на
+                ваши вопросы!</p>
         </div>
 
-        <div class="contact-card">
-            <div class="contact-icon">🔵</div>
-            <h3 class="contact-title">СТРАНИЦА ВКОНТАКТЕ</h3>
-            <p class="contact-description">
-                Следите за нашими новостями и участвуйте в конкурсах в нашей официальной группе ВКонтакте! Будьте в курсе последних событий!
-            </p>
-            <a href="https://t.me/gvrlvch" target="_blank" class="contact-link">
-                ПЕРЕЙТИ В VK
-            </a>
-        </div>
-    </div>
-
-    <div class="info-section">
-        <h2 class="info-title">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</h2>
-        
-        <div class="info-grid">
-            <div class="info-item">
-                <h4>📧 Email</h4>
-                <p>CARTEMOUS@GMAIL.COM</p>
+        <div class="contacts-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3 class="contact-title">TELEGRAM КАНАЛ</h3>
+                <p class="contact-description">
+                    Подписывайтесь на наш Telegram канал, чтобы первыми узнавать о новинках, акциях и специальных
+                    предложениях!
+                </p>
+                <a href="https://t.me/gvrlvch" target="_blank" class="contact-link">
+                    ПЕРЕЙТИ В TELEGRAM
+                </a>
             </div>
-            
+
+            <div class="contact-card">
+                <div class="contact-icon">🔵</div>
+                <h3 class="contact-title">СТРАНИЦА ВКОНТАКТЕ</h3>
+                <p class="contact-description">
+                    Следите за нашими новостями и участвуйте в конкурсах в нашей официальной группе ВКонтакте! Будьте в
+                    курсе последних событий!
+                </p>
+                <a href="https://t.me/gvrlvch" target="_blank" class="contact-link">
+                    ПЕРЕЙТИ В VK
+                </a>
+            </div>
         </div>
 
-        <a href="{{ route('home') }}" class="back-link">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
-    </div>
-</div>
+        <div class="info-section">
+            <h2 class="info-title">ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ</h2>
 
-@include('components.footer')
+            <div class="info-grid">
+                <div class="info-item">
+                    <h4>📧 Email</h4>
+                    <p>CARTEMOUS@GMAIL.COM</p>
+                </div>
+
+            </div>
+
+            <a href="{{ route('home') }}" class="back-link">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
+        </div>
+    </div>
+
+    @include('components.footer')
 
 </body>
+
 </html>

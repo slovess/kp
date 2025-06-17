@@ -38,6 +38,7 @@ class CatalogController extends Controller
             });
         }
         
+
         if ($request->has('min_price')) {
             $query->where('price', '>=', $request->min_price);
         }

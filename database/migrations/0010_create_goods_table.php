@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('size', 8)->nullable();
             $table->string('image', 255)->nullable();
 
-            $table->foreignId('brand_id')->references('id')->on('brands');
-            $table->foreignId('category_id')->references('id')->on('categories');
-            $table->foreignId('location_id')->references('id')->on('locations');
-            $table->foreignId('material_id')->references('id')->on('materials');
-            $table->foreignId('color_id')->references('id')->on('colors');
+            $table->foreignId('brand_id')->references('id')->on('brands')->on('materials')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->references('id')->on('categories')->on('materials')->constrained()->onDelete('cascade');
+            $table->foreignId('location_id')->references('id')->on('locations')->on('materials')->constrained()->onDelete('cascade');
+            $table->foreignId('material_id')->references('id')->on('materials')->constrained()->onDelete('cascade');
+            $table->foreignId('color_id')->references('id')->on('colors')->on('materials')->constrained()->onDelete('cascade');
 
             $table->timestamps();
         });

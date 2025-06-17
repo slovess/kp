@@ -19,7 +19,6 @@ class Good extends Model
         'brand_id',
         'category_id',
         'location_id',
-        'material_id',
         'color_id',
     ];
 
@@ -40,16 +39,12 @@ class Good extends Model
         return $this->belongsTo(Location::class);
     }
 
-    public function material() {
-        return $this->belongsTo(Material::class);
-    }
-
     public function color() {
         return $this->belongsTo(Color::class);
     }
 
-    public function materials()
+    public function material()
     {
-        return $this->belongsToMany(Material::class, 'goods_has_materials');
+        return $this->belongsTo(Material::class);
     }
 }

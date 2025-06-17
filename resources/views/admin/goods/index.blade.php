@@ -8,15 +8,32 @@
 @endif
 
 <div style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <label for="per_page" style="font-weight: 600; margin: 0;">Показать:</label>
-        <select id="per_page" onchange="changePerPage(this.value)" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
-            <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
-            <option value="15" {{ request('per_page') == 15 || !request('per_page') ? 'selected' : '' }}>15</option>
-            <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>25</option>
-            <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>50</option>
-        </select>
-        <span style="color: #666; font-size: 14px;">товаров на странице</span>
+    <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="per_page" style="font-weight: 600; margin: 0;">Показать:</label>
+            <select id="per_page" onchange="changePerPage(this.value)" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+                <option value="10" {{ request('per_page') == 10 ? 'selected' : '' }}>10</option>
+                <option value="15" {{ request('per_page') == 15 || !request('per_page') ? 'selected' : '' }}>15</option>
+                <option value="25" {{ request('per_page') == 25 ? 'selected' : '' }}>25</option>
+                <option value="50" {{ request('per_page') == 50 ? 'selected' : '' }}>50</option>
+            </select>
+            <span style="color: #666; font-size: 14px;">товаров на странице</span>
+        </div>
+        
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <label for="sort_by" style="font-weight: 600; margin: 0;">Сортировка:</label>
+            <select id="sort_by" onchange="changeSorting()" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+                <option value="id" {{ request('sort_by') == 'id' || !request('sort_by') ? 'selected' : '' }}>По номеру</option>
+                <option value="name" {{ request('sort_by') == 'name' ? 'selected' : '' }}>По названию</option>
+                <option value="price" {{ request('sort_by') == 'price' ? 'selected' : '' }}>По цене</option>
+              
+            </select>
+            
+            <select id="sort_order" onchange="changeSorting()" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+                <option value="desc" {{ request('sort_order') == 'desc' || !request('sort_order') ? 'selected' : '' }}>По убыванию</option>
+                <option value="asc" {{ request('sort_order') == 'asc' ? 'selected' : '' }}>По возрастанию</option>
+            </select>
+        </div>
     </div>
     
     <div style="color: #666; font-size: 14px;">
@@ -31,7 +48,7 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Номер</th>
             <th>Название</th>
             <th>Цена</th>
             <th>Изображение</th>
@@ -47,21 +64,21 @@
     <tbody>
         @forelse($goods as $good)
             <tr>
-                <td>{{ $good->id }}</td>
-                <td>{{ $good->name }}</td>
-                <td>{{ number_format($good->price, 2, ',', ' ') }} ₽</td>
-                <td>
+                <td data-label="ID">{{ $good->id }}</td>
+                <td data-label="Название">{{ $good->name }}</td>
+                <td data-label="Цена">{{ number_format($good->price, 2, ',', ' ') }} ₽</td>
+                <td data-label="Изображение">
                     @if($good->image)
                         <img src="{{ asset('storage/' . $good->image) }}" width="80" alt="Фото товара">
                     @endif
                 </td>
-                <td>{{ $good->isPopular ? 'Да' : 'Нет' }}</td>
-                <td>{{ $good->brand->title ?? '—' }}</td>
-                <td>{{ $good->category->title ?? '—' }}</td>
-                <td>{{ $good->location->title ?? '—' }}</td>
-                <td>{{ $good->material->title ?? '—' }}</td>
-                <td>{{ $good->color->title ?? '—' }}</td>
-                <td>
+                <td data-label="Популярный">{{ $good->isPopular ? 'Да' : 'Нет' }}</td>
+                <td data-label="Бренд">{{ $good->brand->title ?? '—' }}</td>
+                <td data-label="Категория">{{ $good->category->title ?? '—' }}</td>
+                <td data-label="Локация">{{ $good->location->title ?? '—' }}</td>
+                <td data-label="Материал">{{ $good->material->title ?? '—' }}</td>
+                <td data-label="Цвет">{{ $good->color->title ?? '—' }}</td>
+                <td data-label="Действия">
                     <a href="{{ route('admin.goods.edit', $good->id) }}" title="Редактировать">✏️</a>
                     <form action="{{ route('admin.goods.destroy', $good->id) }}" method="POST" style="display:inline;">
                         @csrf
@@ -81,7 +98,7 @@
         Показано {{ $goods->firstItem() ?? 0 }}-{{ $goods->lastItem() ?? 0 }} из {{ $goods->total() }} товаров
     </div>
     
-  
+
 </div>
 @endsection
 
@@ -90,6 +107,17 @@ function changePerPage(perPage) {
     const url = new URL(window.location);
     url.searchParams.set('per_page', perPage);
     url.searchParams.delete('page'); // Сбрасываем на первую страницу
+    window.location.href = url.toString();
+}
+
+function changeSorting() {
+    const url = new URL(window.location);
+    const sortBy = document.getElementById('sort_by').value;
+    const sortOrder = document.getElementById('sort_order').value;
+    
+    url.searchParams.set('sort_by', sortBy);
+    url.searchParams.set('sort_order', sortOrder);
+    url.searchParams.delete('page');
     window.location.href = url.toString();
 }
 </script>
@@ -142,18 +170,69 @@ function changePerPage(perPage) {
 }
 
 @media (max-width: 768px) {
-    .pagination-wrapper {
-        overflow-x: auto;
-        padding: 10px 0;
-    }
-    
-    .pagination-wrapper .pagination {
-        min-width: max-content;
-    }
-    
-    .pagination-wrapper .page-link {
-        padding: 6px 10px;
-        font-size: 12px;
-    }
+  .pagination-wrapper {
+    order: 2;
+    margin-top: 20px;
+  }
+  
+  table {
+    order: 1;
+  }
+  
+  .success-message {
+    order: 0;
+  }
+  
+  /* Делаем таблицу адаптивной */
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50% !important;
+    text-align: left;
+  }
+  
+  td:before {
+    content: attr(data-label) ": ";
+    position: absolute;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-wrapper .page-link {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  
+  td {
+    padding-left: 45% !important;
+    font-size: 14px;
+  }
+  
+  td:before {
+    font-size: 12px;
+    width: 40%;
+  }
 }
 </style>

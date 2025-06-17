@@ -14,6 +14,6 @@ class Material extends Model
     ];
 
     public function goods() {
-        return $this->belongsToMany(Good::class, 'goods_has_materials');
+        return $this->HasMany(Good::class);
     }
 }

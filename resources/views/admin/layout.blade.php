@@ -164,6 +164,11 @@
     </div>
     <nav class="admin-nav">
         <a href="{{ route('admin.goods.index') }}">Товары</a>
+         <a href="{{ route('admin.brands.index') }}">Бренды</a>
+          <a href="{{ route('admin.colors.index') }}">Цвета</a>
+           <a href="{{ route('admin.categories.index') }}">Категории</a>
+            <a href="{{ route('admin.materials.index') }}">Материалы</a>
+             <a href="{{ route('admin.locations.index') }}">Локации</a>
         <a href="{{ route('home') }}">Выйти из админ-панели</a>
      
     </nav>

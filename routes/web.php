@@ -9,11 +9,22 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Admin\GoodController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\ColorController;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\MaterialController;
+
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    Route::resource('goods', GoodController::class);
+     Route::resource('goods', GoodController::class);
+    Route::resource('brands', BrandController::class);
+    Route::resource('materials',MaterialController::class);
+    Route::resource('colors', ColorController::class);
+    Route::resource('categories',CategoriesController::class);
+    Route::resource('locations', LocationController::class);
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');

@@ -138,7 +138,6 @@
       line-height: 1.4;
       margin: 0;
       height: 100px;
-      /* Фиксированная высота для текста */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -222,17 +221,13 @@
       border-radius: 8px;
       transition: transform 0.3s ease;
       position: relative;
-      /* Добавляем для позиционирования */
       height: 300px;
-      /* Фиксированная высота блока */
     }
 
     .category-image-container {
       width: 100%;
       height: 180px;
-      /* Фиксированная высота контейнера для изображения */
       overflow: hidden;
-      /* Обрезаем всё, что выходит за границы */
       position: relative;
       margin-bottom: 15px;
     }

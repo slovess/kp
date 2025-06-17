@@ -24,6 +24,8 @@ class MaterialSeeder extends Seeder
             'материал8',
             'материал9',
             'материал10',
+               'материал11',
+                  'материал11',
         ];
 
         foreach($ArrayOfMaterials as $item) {

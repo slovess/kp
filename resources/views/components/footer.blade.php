@@ -72,6 +72,7 @@
     padding: 36px 50px;
     align-items: stretch;
     gap: 20px;
+    width: 100%;
     font-family: Montserrat, -apple-system, Roboto, Helvetica, sans-serif;
     font-size: 16px;
     color: rgba(229, 229, 229, 1);
@@ -333,7 +334,7 @@ function toggleFooterMenu() {
     footerBurger.classList.toggle('active');
 }
 
-// Закрытие меню футера при клике вне его
+
 document.addEventListener('click', function(event) {
     const footerMenu = document.getElementById('footerMobileMenu');
     const footerBurger = document.querySelector('.footer-burger-menu');
@@ -344,7 +345,7 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Закрытие мобильного меню футера при изменении размера экрана
+
 window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
         const footerMenu = document.getElementById('footerMobileMenu');
