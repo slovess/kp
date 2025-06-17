@@ -19,7 +19,7 @@
        Привет, {{ Auth::user()->name }}!
    </a>
 
-   <form method="POST" action="{{ route('logout') }}" style="display: inline;">
+   <form method="POST" action="{{ route('logout') }}">
        @csrf
        <button type="submit" class="auth-link" style=" font-family:
        Montserrat; margin-bottom:20px; background: none; border: none; color: #e5e5e5; font-size: 16px; font-weight: 600; cursor: pointer;">
@@ -88,6 +88,10 @@
     white-space: nowrap;
     letter-spacing: 0.8px;
     justify-content: space-between;
+
+    form {
+        display: inline;
+    }
 }
 
 .logo {
@@ -130,7 +134,13 @@
         justify-content: space-between;
         flex-direction: row;
         padding: 20px;
+
+        form {
+            display: none;
+        }
     }
+
+    form 
     
     .logo {
         width: 60px;

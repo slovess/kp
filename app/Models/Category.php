@@ -13,7 +13,6 @@ class Category extends Model
         return $this->hasMany(Good::class);
     }
     
-    // Метод для получения полного пути к изображению
     public function getImagePath()
     {
         return asset('categories/' . $this->image);

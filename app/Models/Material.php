@@ -13,7 +13,6 @@ class Material extends Model
         'title'
     ];
 
-    /*Многие ко многим*/
     public function goods() {
         return $this->belongsToMany(Good::class, 'goods_has_materials');
     }

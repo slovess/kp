@@ -6,12 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
     <title></title>
-    <!-- <link rel="stylesheet" href="{{ asset('css/style.css') }}"> -->
-    @vite(['resources/css/session.css'])
+
 </head>
 
 <body>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         .top-nav {
             background-color: rgba(103, 8, 8, 1);
             display: flex;
@@ -94,6 +99,7 @@
 
         .product-info {
             display: flex;
+            gap: 20px;
             margin-top: 36px;
             flex-grow: 1;
             flex-direction: column;
@@ -459,9 +465,7 @@
         .product-image-container {
             width: 100%;
             height: 180px;
-            /* Фиксированная высота контейнера для изображения */
             overflow: hidden;
-            /* Обрезаем всё, что выходит за границы */
             position: relative;
             margin-bottom: 15px;
         }
@@ -471,9 +475,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Сохраняем пропорции, заполняя контейнер */
             object-position: center;
-            /* Центрируем изображение */
             display: block;
         }
 
@@ -482,9 +484,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Сохраняем пропорции, заполняя контейнер */
             object-position: center;
-            /* Центрируем изображение */
             display: block;
         }
 
@@ -554,258 +554,262 @@
             text-decoration: none;
         }
 
-        /* Добавить в конец существующих стилей */
 
-/* Мобильная адаптивность */
-@media (max-width: 768px) {
-      .product-info1 {
-            margin-top: -20px;
-            padding: 0px;
+
+        /* Мобильная адаптивность */
+        @media (max-width: 768px) {
+            .product-info1 {
+                margin-top: -20px;
+                padding: 0px;
+            }
+
+            .product-content {
+                padding: 0 20px;
+                margin-top: 20px;
+            }
+
+            .product-layout {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .product-gallery {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                order: 1;
+            }
+
+            .product-image1 {
+                margin-top: 20px;
+                width: 100%;
+                height: auto;
+                max-height: 300px;
+                object-fit: contain;
+            }
+
+            .product-info {
+                margin-top: 0;
+                width: 100%;
+                gap: 20px;
+                order: 2;
+            }
+
+            .size-label,
+            .product-price {
+                font-size: 16px;
+            }
+
+            .color-label {
+                font-size: 14px;
+            }
+
+            .color-label1 {
+                font-size: 14px;
+                margin-top: 8px;
+            }
+
+            .price-color {
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .buy-button {
+                margin-top: 25px;
+                padding: 12px 40px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .product-tabs {
+                margin-top: 40px;
+                padding-bottom: 40px;
+            }
+
+            .tabs-header {
+                margin-left: 15px;
+                font-size: 14px;
+            }
+
+            .description-text {
+                font-size: 16px;
+                margin: 25px 0 0 20px;
+                padding-right: 20px;
+            }
+
+            .section-header {
+                margin-top: 40px;
+                font-size: 18px;
+                justify-content: center;
+            }
+
+            .in_link {
+                margin-left: 0;
+            }
+
+            .products-grid {
+                margin-top: 30px;
+                padding: 0 15px;
+                justify-content: center;
+            }
+
+            .product-card {
+                width: 160px;
+                height: 260px;
+                margin: 8px;
+            }
+
+            .product-image {
+                height: 120px;
+            }
+
+            .product-title1 {
+                font-size: 14px;
+            }
+
+            .product-price1 {
+                font-size: 16px;
+            }
         }
 
-  .product-content {
-    padding: 0 20px;
-    margin-top: 20px;
-  }
-  
-  .product-layout {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .product-gallery {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    order: 1;
-  }
-  
-  .product-image1 {
-    margin-top: 20px;
-    width: 100%;
-    height: auto;
-    max-height: 300px;
-    object-fit: contain;
-  }
-  
-  .product-info {
-    margin-top: 0;
-    width: 100%;
-    text-align: center;
-    order: 2;
-  }
-  
-  .size-label, .product-price {
-    font-size: 16px;
-  }
-  
-  .color-label {
-    font-size: 14px;
-  }
-  
-  .color-label1 {
-    font-size: 14px;
-    margin-top: 8px;
-  }
-  
-  .price-color {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .buy-button {
-    margin-top: 25px;
-    padding: 12px 40px;
-    font-size: 16px;
-    width: 100%;
-    max-width: 300px;
-  }
-  
-  .product-tabs {
-    margin-top: 40px;
-    padding-bottom: 40px;
-  }
-  
-  .tabs-header {
-    margin-left: 15px;
-    font-size: 14px;
-  }
-  
-  .description-text {
-    font-size: 16px;
-    margin: 25px 0 0 20px;
-    padding-right: 20px;
-  }
-  
-  .section-header {
-    margin-top: 40px;
-    font-size: 18px;
-    justify-content: center;
-  }
-  
-  .in_link {
-    margin-left: 0;
-  }
-  
-  .products-grid {
-    margin-top: 30px;
-    padding: 0 15px;
-    justify-content: center;
-  }
-  
-  .product-card {
-    width: 160px;
-    height: 260px;
-    margin: 8px;
-  }
-  
-  .product-image {
-    height: 120px;
-  }
-  
-  .product-title1 {
-    font-size: 14px;
-  }
-  
-  .product-price1 {
-    font-size: 16px;
-  }
-}
+        @media (max-width: 480px) {
+            .product-content {
+                padding: 0 15px;
+            }
 
-@media (max-width: 480px) {
-  .product-content {
-    padding: 0 15px;
-  }
-  
-  .product-gallery {
-    max-width: 250px;
-  }
-  
-  .product-image1 {
-    max-height: 250px;
-  }
-  
-  .size-label, .product-price {
-    font-size: 15px;
-  }
-  
-  .color-label, .color-label1 {
-    font-size: 13px;
-  }
-  
-  .buy-button {
-    padding: 10px 30px;
-    font-size: 15px;
-    max-width: 250px;
-  }
-  
-  .product-tabs {
-    margin-top: 30px;
-  }
-  
-  .tabs-header {
-    margin-left: 10px;
-    font-size: 13px;
-  }
-  
-  .description-text {
-    font-size: 14px;
-    margin: 20px 0 0 15px;
-    padding-right: 15px;
-  }
-  
-  .section-header {
-    font-size: 16px;
-    margin-top: 30px;
-  }
-  
-  .section-icon {
-    width: 14px;
-  }
-  
-  .products-grid {
-    padding: 0 10px;
-    gap: 10px;
-  }
-  
-  .product-card {
-    width: 140px;
-    height: 240px;
-    margin: 5px;
-  }
-  
-  .product-image {
-    height: 100px;
-  }
-  
-  .product-title1 {
-    font-size: 13px;
-  }
-  
-  .product-price1 {
-    font-size: 15px;
-  }
-}
+            .product-gallery {
+                max-width: 250px;
+            }
 
-@media (max-width: 360px) {
-      .product-info1 {
-            margin-top: -20px;
-            padding: 0px;
+            .product-image1 {
+                max-height: 250px;
+            }
+
+            .size-label,
+            .product-price {
+                font-size: 15px;
+            }
+
+            .color-label,
+            .color-label1 {
+                font-size: 13px;
+            }
+
+            .buy-button {
+                padding: 10px 30px;
+                font-size: 15px;
+                max-width: 250px;
+            }
+
+            .product-tabs {
+                margin-top: 30px;
+            }
+
+            .tabs-header {
+                margin-left: 10px;
+                font-size: 13px;
+            }
+
+            .description-text {
+                font-size: 14px;
+                margin: 20px 0 0 15px;
+                padding-right: 15px;
+            }
+
+            .section-header {
+                font-size: 16px;
+                margin-top: 30px;
+            }
+
+            .section-icon {
+                width: 14px;
+            }
+
+            .products-grid {
+                padding: 0 10px;
+                gap: 10px;
+            }
+
+            .product-card {
+                width: 140px;
+                height: 240px;
+                margin: 5px;
+            }
+
+            .product-image {
+                height: 100px;
+            }
+
+            .product-title1 {
+                font-size: 13px;
+            }
+
+            .product-price1 {
+                font-size: 15px;
+            }
         }
 
-  .product-content {
-    padding: 0 10px;
-  }
-  
-  .product-gallery {
-    max-width: 200px;
-  }
-  
-  .product-image1 {
-    max-height: 200px;
-  }
-  
-  .size-label, .product-price {
-    font-size: 14px;
-  }
-  
-  .buy-button {
-    padding: 8px 20px;
-    font-size: 14px;
-    max-width: 200px;
-  }
-  
-  .description-text {
-    font-size: 13px;
-    margin: 15px 0 0 10px;
-    padding-right: 10px;
-  }
-  
-  .products-grid {
-    gap: 8px;
-  }
-  
-  .product-card {
-    width: 100%;
-    height: 220px;
-    margin: 3px;
-  }
-  
-  .product-image {
-    height: 90px;
-  }
-  
-  .product-title1 {
-    font-size: 12px;
-  }
-  
-  .product-price1 {
-    font-size: 14px;
-  }
-}
+        @media (max-width: 360px) {
+            .product-info1 {
+                margin-top: -20px;
+                padding: 0px;
+            }
+
+            .product-content {
+                padding: 0 10px;
+            }
+
+            .product-gallery {
+                max-width: 200px;
+            }
+
+            .product-image1 {
+                max-height: 200px;
+            }
+
+            .size-label,
+            .product-price {
+                font-size: 14px;
+            }
+
+            .buy-button {
+                padding: 8px 20px;
+                font-size: 14px;
+                max-width: 200px;
+            }
+
+            .description-text {
+                font-size: 13px;
+                margin: 15px 0 0 10px;
+                padding-right: 10px;
+            }
+
+            .products-grid {
+                gap: 8px;
+            }
+
+            .product-card {
+                width: 100%;
+                height: 220px;
+                margin: 3px;
+            }
+
+            .product-image {
+                height: 90px;
+            }
+
+            .product-title1 {
+                font-size: 12px;
+            }
+
+            .product-price1 {
+                font-size: 14px;
+            }
+        }
     </style>
     @include('components.header')
 
@@ -827,34 +831,35 @@
 
                         </p>
                     </div>
-                        <div class="price">
-    
-                    <p class="product-price">{{ $good->price }} руб.</p>
-                    <div class="price-color">
-                    </div>
+                    <div class="price">
+
+                        <p class="product-price">{{ $good->price }} руб.</p>     
+                     </div>
+                        <div class="price-color">
+                        </div>
                         <h2 class="color-label">цвет:</h2>
                         <div class="color-label1">{{ $good->color->title }} </div>
+              
+                    @if($inCart)
+                    <button class="buy-button disabled" disabled>Уже в корзине</button>
+                    @else
+                    <form action="{{ route('cart.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="goods_id" value="{{ $good->id }}">
+                        <button type="submit" class="buy-button">КУПИТЬ</button>
+                    </form>
+                    @endif
+                    @if(session('error'))
+                    <div class="session-error-message">
+                        {{ session('error') }}
                     </div>
-                   @if($inCart)
-    <button class="buy-button disabled" disabled>Уже в корзине</button>
-@else
-    <form action="{{ route('cart.store') }}" method="POST">
-        @csrf
-        <input type="hidden" name="goods_id" value="{{ $good->id }}">
-        <button type="submit" class="buy-button">КУПИТЬ</button>
-    </form>
-@endif
-@if(session('error'))
-    <div class="session-error-message">
-        {{ session('error') }}
-    </div>
-@endif
+                    @endif
 
-@if(session('success'))
-    <div class="session-success-message">
-        {{ session('success') }}
-    </div>
-@endif
+                    @if(session('success'))
+                    <div class="session-success-message">
+                        {{ session('success') }}
+                    </div>
+                    @endif
                 </section>
             </div>
         </article>
@@ -862,7 +867,7 @@
         <section class="product-tabs">
             <div class="tabs-header">
                 <h2 class="tab-active">описание</h2>
-               
+
             </div>
             <hr class="tab-separator" />
             <p class="description-text">

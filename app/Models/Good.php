@@ -48,7 +48,6 @@ class Good extends Model
         return $this->belongsTo(Color::class);
     }
 
-    /*Многие ко многим*/
     public function materials()
     {
         return $this->belongsToMany(Material::class, 'goods_has_materials');

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Профиль</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -135,7 +135,7 @@ body {
   gap: 20px;
   margin-top: 48px;
   justify-content: center;
-  flex-wrap: nowrap; /* запрещаем перенос */
+  flex-wrap: nowrap; 
 }
 
 .profile__button {
@@ -152,11 +152,11 @@ body {
 
 @media (max-width: 640px) {
   .profile__actions {
-    flex-wrap: nowrap; /* запрещаем перенос даже на мобильных */
+    flex-wrap: nowrap; 
   }
 
   .profile__button {
-    width: 177px; /* фиксированная ширина */
+    width: 177px; 
     min-width: unset;
   }
 }
@@ -311,7 +311,6 @@ body {
 }
 
         </style>
-    </style>
 </head>
 <body>
   @include('components.header')

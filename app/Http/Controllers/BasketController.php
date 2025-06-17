@@ -30,7 +30,6 @@ public function store(Request $request)
     $userId = Auth::id();
     $goodsId = $request->input('goods_id');
 
-    // Проверка: уже добавлен?
     $existingItem = Basket::where('user_id', $userId)
         ->where('goods_id', $goodsId)
         ->first();
@@ -76,7 +75,7 @@ public function decrease(Good $item)
     {
         $item = Basket::findOrFail($id);
 
-        // Проверка, что товар принадлежит текущему пользователю
+        
         if ($item->user_id != auth()->id()) {
             abort(403);
         }

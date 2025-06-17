@@ -11,7 +11,7 @@ class GoodSeeder extends Seeder
     {
         // КАТЕГОРИЯ 1: Футболки (5 товаров)
         Good::create([
-            'name'        => 'Enfants Riches Déprimés Tee',
+            'name'        => 'Enfants Riches Déprimés',
             'description' => 'Эксклюзивная футболка с провокационным принтом и рваными краями. Материал данного изделия - 100% хлопок.',
             'price'       => 48000,
             'isPresence'  => 1,
@@ -41,7 +41,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Vetements Total Darkness',
+            'name'        => 'Vetements  Darkness',
             'description' => 'Футболка оверсайз с графическим принтом на груди. Выполнена из 100% хлопка премиального качества.',
             'price'       => 32000,
             'isPresence'  => 1,
@@ -56,7 +56,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Cross Tee',
+            'name'        => 'Chrome Hearts Cross ',
             'description' => 'Футболка с фирменным принтом Chrome Hearts. Высококачественный хлопок, свободный крой.',
             'price'       => 42000,
             'isPresence'  => 1,
@@ -71,7 +71,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Balenciaga Logo Tee',
+            'name'        => 'Balenciaga Logo ',
             'description' => 'Классическая футболка с логотипом Balenciaga на груди. Прямой крой, круглый вырез.',
             'price'       => 28500,
             'isPresence'  => 1,
@@ -87,7 +87,7 @@ class GoodSeeder extends Seeder
 
         // КАТЕГОРИЯ 2: Украшения (5 товаров)
         Good::create([
-            'name'        => 'Chrome Hearts Forever Ring',
+            'name'        => 'Chrome Hearts Forever',
             'description' => 'Серебряное кольцо с гравировкой и фирменными крестами Chrome Hearts.',
             'price'       => 65000,
             'isPresence'  => 1,
@@ -102,7 +102,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Dagger Pendant',
+            'name'        => 'Chrome Hearts Dagger ',
             'description' => 'Серебряный кулон в форме кинжала с фирменными элементами Chrome Hearts.',
             'price'       => 78000,
             'isPresence'  => 1,
@@ -117,7 +117,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Valentino Rockstud Bracelet',
+            'name'        => 'Valentino Rockstud ',
             'description' => 'Кожаный браслет с фирменными шипами Valentino Rockstud.',
             'price'       => 32000,
             'isPresence'  => 1,
@@ -132,7 +132,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Cross Earrings',
+            'name'        => 'Chrome Hearts Cross ',
             'description' => 'Серебряные серьги с крестами и черными камнями.',
             'price'       => 55000,
             'isPresence'  => 1,
@@ -147,7 +147,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Balenciaga Chain Necklace',
+            'name'        => 'Balenciaga Chain ',
             'description' => 'Массивная цепь с логотипом Balenciaga из нержавеющей стали.',
             'price'       => 38000,
             'isPresence'  => 1,
@@ -163,7 +163,7 @@ class GoodSeeder extends Seeder
 
         // КАТЕГОРИЯ 3: Верхняя одежда (5 товаров)
         Good::create([
-            'name'        => 'Raf Simons Embroidery Sweater',
+            'name'        => 'Raf Simons Embroidery ',
             'description' => 'Гениален в каждой детали. Свитер с вышивкой и уникальным дизайном.',
             'price'       => 35000,
             'isPresence'  => 1,
@@ -178,7 +178,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Balenciaga Puffer Jacket',
+            'name'        => 'Balenciaga Puffer ',
             'description' => 'Объемная пуховая куртка с логотипом Balenciaga. Водоотталкивающий материал, теплый наполнитель.',
             'price'       => 185000,
             'isPresence'  => 1,
@@ -193,7 +193,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Yoji Yamamoto Asymmetric Coat',
+            'name'        => 'Yoji Yamamoto Asymmetric ',
             'description' => 'Асимметричное пальто с авангардным кроем. Шерстяная ткань высшего качества.',
             'price'       => 210000,
             'isPresence'  => 1,
@@ -223,7 +223,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Vetements Oversized Hoodie',
+            'name'        => 'Vetements Oversized',
             'description' => 'Культовая толстовка с капюшоном и вышитым логотипом оверсайз.',
             'price'       => 62000,
             'isPresence'  => 1,
@@ -284,7 +284,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Valentino Rockstud Sneakers',
+            'name'        => 'Valentino Rockstud ',
             'description' => 'Кожаные кроссовки с фирменными шипами Rockstud по бокам.',
             'price'       => 78000,
             'isPresence'  => 1,
@@ -299,7 +299,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Leather Boots',
+            'name'        => 'Chrome Hearts Leather',
             'description' => 'Кожаные ботинки с металлическими элементами и крестами.',
             'price'       => 125000,
             'isPresence'  => 1,
@@ -315,7 +315,7 @@ class GoodSeeder extends Seeder
 
         // КАТЕГОРИЯ 5: Аксессуары (5 товаров)
         Good::create([
-            'name'        => 'Chrome Hearts Wallet Chain',
+            'name'        => 'Chrome Hearts Wallet ',
             'description' => 'Серебрянная цепь для кошелька с фирменными крестами.',
             'price'       => 85000,
             'isPresence'  => 1,
@@ -330,7 +330,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Balenciaga Logo Cap',
+            'name'        => 'Balenciaga Logo ',
             'description' => 'Кепка с вышитым логотипом и регулируемым ремешком.',
             'price'       => 32000,
             'isPresence'  => 1,
@@ -345,7 +345,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Valentino Rockstud Belt',
+            'name'        => 'Valentino Rockstud',
             'description' => 'Кожаный ремень с фирменными шипами Valentino.',
             'price'       => 45000,
             'isPresence'  => 1,
@@ -360,7 +360,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Raf Simons Archive Scarf',
+            'name'        => 'Raf Simons Archive',
             'description' => 'Шарф с принтом из архивной коллекции Raf Simons.',
             'price'       => 28000,
             'isPresence'  => 1,
@@ -375,7 +375,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Sunglasses',
+            'name'        => 'Chrome Hearts Sung',
             'description' => 'Солнцезащитные очки с серебряными крестами на дужках.',
             'price'       => 95000,
             'isPresence'  => 1,
@@ -391,7 +391,7 @@ class GoodSeeder extends Seeder
 
         // КАТЕГОРИЯ 6: Брюки (5 товаров)
         Good::create([
-            'name'        => 'Yoji Yamamoto Wide Pants',
+            'name'        => 'Yoji Yamamoto Wide ',
             'description' => 'Широкие брюки с высокой посадкой и асимметричным кроем.',
             'price'       => 68000,
             'isPresence'  => 1,
@@ -406,7 +406,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Balenciaga Cargo Pants',
+            'name'        => 'Balenciaga Cargo ',
             'description' => 'Брюки-карго с множеством карманов и фирменным логотипом.',
             'price'       => 75000,
             'isPresence'  => 1,
@@ -421,7 +421,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Raf Simons Tailored Trousers',
+            'name'        => 'Raf Simons Tailored ',
             'description' => 'Классические брюки с зауженным кроем и декоративными элементами.',
             'price'       => 52000,
             'isPresence'  => 1,
@@ -436,7 +436,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Vetements Track Pants',
+            'name'        => 'Vetements Track ',
             'description' => 'Спортивные брюки оверсайз с лампасами и логотипом.',
             'price'       => 38000,
             'isPresence'  => 1,
@@ -451,7 +451,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Leather Pants',
+            'name'        => 'Chrome Hearts Leather ',
             'description' => 'Кожаные брюки с металлическими элементами и крестами.',
             'price'       => 185000,
             'isPresence'  => 1,
@@ -467,7 +467,7 @@ class GoodSeeder extends Seeder
 
         // КАТЕГОРИЯ 7: Свитеры, джемперы (5 товаров)
         Good::create([
-            'name'        => 'Raf Simons Oversized Sweater',
+            'name'        => 'Raf Simons Oversized ',
             'description' => 'Объемный свитер с графическим принтом и спущенным плечом.',
             'price'       => 58000,
             'isPresence'  => 1,
@@ -512,7 +512,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Yoji Yamamoto Deconstructed Cardigan',
+            'name'        => 'Yoji Yamamoto Deconstructed ',
             'description' => 'Деконструированный кардиган с асимметричными деталями.',
             'price'       => 125000,
             'isPresence'  => 1,
@@ -573,7 +573,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Raf Simons Destroyed Denim',
+            'name'        => 'Raf Simons Destroyed ',
             'description' => 'Джинсы с эффектом разрушения и патчами.',
             'price'       => 68000,
             'isPresence'  => 1,
@@ -649,7 +649,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Yoji Yamamoto Asymmetric Shirt',
+            'name'        => 'Yoji Yamamoto Asymmetric',
             'description' => 'Авангардная рубашка с асимметричным кроем и необычными деталями.',
             'price'       => 58000,
             'isPresence'  => 1,
@@ -664,7 +664,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Chrome Hearts Cross Shirt',
+            'name'        => 'Chrome Hearts Cross ',
             'description' => 'Рубашка с вышитыми крестами и металлическими пуговицами.',
             'price'       => 85000,
             'isPresence'  => 1,
@@ -695,7 +695,7 @@ class GoodSeeder extends Seeder
 
         // КАТЕГОРИЯ 10: Сумки (5 товаров)
         Good::create([
-            'name'        => 'Chrome Hearts Duffle Bag',
+            'name'        => 'Chrome Hearts Duffle ',
             'description' => 'Дорожная сумка из кожи с фирменными крестами и металлическими элементами.',
             'price'       => 195000,
             'isPresence'  => 1,
@@ -710,7 +710,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Balenciaga Hourglass Bag',
+            'name'        => 'Balenciaga Hourglass ',
             'description' => 'Культовая сумка с узнаваемым силуэтом и логотипом.',
             'price'       => 165000,
             'isPresence'  => 1,
@@ -725,7 +725,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Raf Simons Archive Tote',
+            'name'        => 'Raf Simons Archive ',
             'description' => 'Тканевая сумка-тоут с принтом из архивной коллекции.',
             'price'       => 35000,
             'isPresence'  => 1,
@@ -740,7 +740,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Vetements Messenger Bag',
+            'name'        => 'Vetements Messenger',
             'description' => 'Сумка-мессенджер с логотипом и регулируемым ремнем.',
             'price'       => 48000,
             'isPresence'  => 1,
@@ -755,7 +755,7 @@ class GoodSeeder extends Seeder
         ]);
 
         Good::create([
-            'name'        => 'Yoji Yamamoto Leather Backpack',
+            'name'        => 'Yoji Yamamoto Leather ',
             'description' => 'Кожаный рюкзак с минималистичным дизайном и асимметричными деталями.',
             'price'       => 125000,
             'isPresence'  => 1,

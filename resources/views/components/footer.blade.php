@@ -68,7 +68,6 @@
 .site-footer {
     background-color: rgba(103, 8, 8, 1);
     display: flex;
-    width: 100%;
     margin-top: 99px;
     padding: 36px 50px;
     align-items: stretch;

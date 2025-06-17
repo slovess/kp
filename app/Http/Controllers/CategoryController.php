@@ -7,22 +7,20 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    // Метод для показа всех категорий с изображениями
+
     public function index()
     {
-        // Получаем все категории из базы
+   
         $categories = Category::all(); 
         return view('categories.index', compact('categories'));
         
     }
 
-    // Метод для показа одной категории
+  
     public function show($id)
     {
-        // Находим категорию по ID
-        $category = Category::findOrFail($id);
 
-        // Получаем товары этой категории (если нужно)
+        $category = Category::findOrFail($id);
         $goods = $category->goods;
         
 

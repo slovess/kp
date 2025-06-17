@@ -22,6 +22,6 @@ class Basket extends Model
 
     public function good()
     {
-        return $this->belongsTo(Good::class, 'goods_id'); // Явно указываем поле
+        return $this->belongsTo(Good::class, 'goods_id'); 
     }
 }
